@@ -11,6 +11,13 @@ virtualenv venv
 ```
 
 The simplest way to install Flask:
-```pip install flask```
+```
+pip install flask
+```
 
-
+## Creating a Web Application
+The python file [app.py]() contains a simple web application, which can be ran using the following commands:
+```
+chmod a+x app.py
+./app.py
+```
