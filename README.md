@@ -15,9 +15,12 @@ The simplest way to install Flask:
 pip install flask
 ```
 
-## Creating a Web Application
-Quick example of a simple web application is the file [app.py](app.py), which can be ran using the following commands:
+## Web Application
+The application is located in the app folder and can be called from [app.py](app.py). This file calls the flask application instance called app that is located in the app package. Set the FLASK_APP environment variable so Flask knows what to import.
 ```
-chmod a+x app.py
-./app.py
+export FLASK_APP=app.py
+```
+The application can then be run using:
+```
+flask run
 ```
