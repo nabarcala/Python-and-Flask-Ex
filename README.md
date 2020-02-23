@@ -24,3 +24,11 @@ The application can then be run using:
 ```
 flask run
 ```
+
+## Database Models
+Flask-Migrate contains a framework called Alembic that can make changes to schemas of the database structure but does not require the database to be recreated. Alembic uses a migration repository by creating a directory to hold migration scripts that keep track of all the changes that have taken place. To create this migration repository, run:
+```
+flask db init
+```
+
+Flask-Migrate exposes its commands through the flask command. You have already seen flask run, which is a sub-command that is native to Flask. The flask db sub-command is added by Flask-Migrate to manage everything related to database migrations. So let's create the migration repository for microblog by running flask db init:
