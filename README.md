@@ -30,5 +30,3 @@ Flask-Migrate contains a framework called Alembic that can make changes to schem
 ```
 flask db init
 ```
-
-Flask-Migrate exposes its commands through the flask command. You have already seen flask run, which is a sub-command that is native to Flask. The flask db sub-command is added by Flask-Migrate to manage everything related to database migrations. So let's create the migration repository for microblog by running flask db init:
