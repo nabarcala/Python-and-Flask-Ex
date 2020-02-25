@@ -1,5 +1,5 @@
 # Python-and-Flask-Ex
-Simple and to the point Python and Flask microservice practice.
+Some notes from building the web application.
 
 ## Virtual Environment
 Start by installing Flask in a virtual environmnet, e.g. virtualenv. This can be downloaded from [https://pypi.python.org/pypi/virtualenv](https://pypi.python.org/pypi/virtualenv).
@@ -24,13 +24,21 @@ The application can then be run using:
 ```
 flask run
 ```
-
-## Database Models
-Flask-Migrate contains a framework called Alembic that can make changes to schemas of the database structure but does not require the database to be recreated. Alembic uses a migration repository by creating a directory to hold migration scripts that keep track of all the changes that have taken place. To create this migration repository, run:
-```
-flask db init
-```
-After creating a table in the database (e.g. ```flask db migrate -m "users table"```), use the following command to apply the changes.
+After creating a table (e.g. ```flask db migrate -m "users table"```), run the following command to apply the change to the database.
 ```
 flask db upgrade
 ```
+Some simple commands to add a user and query all users have been added below. All changes will only be applied if the commit command is called.
+```
+u = User(username='john', email='john@example.com')
+db.session.add(u)
+db.session.commit()
+
+users = User.query.all()
+```
+
+
+
+
+
+
