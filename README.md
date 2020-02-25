@@ -30,3 +30,7 @@ Flask-Migrate contains a framework called Alembic that can make changes to schem
 ```
 flask db init
 ```
+After creating a table in the database (e.g. ```flask db migrate -m "users table"```), use the following command to apply the changes.
+```
+flask db upgrade
+```
