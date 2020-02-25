@@ -1,15 +1,16 @@
 # Routes module
-from flask import render_template, flash, redirect, url_for
-from flask_login import current_user, login_user, logout_user
+from flask import render_template, flash, redirect, url_for, request
+from flask_login import current_user, login_user, logout_user, login_required
 from app import app
 from app.forms import LoginForm
 from app.models import User
+from werkzeug.urls import url_parse
 
 # Index/Home 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
-    user = {'username': 'Natacha'}
     posts = [
         {
             'author': {'username': 'John'},
@@ -20,7 +21,7 @@ def index():
             'body': 'The Avengers movie was so cool!'
         }
     ]
-    return render_template('index.html', title='Home', user=user, posts=posts)
+    return render_template('index.html', title='Home', posts=posts)
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
@@ -38,6 +39,10 @@ def login():
             return redirect(url_for('login'))
         # If passes check, log user in
         login_user(user, remember=form.remember_me.data)
+        # If user has logged in, redirect user to page they were trying to access
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('index')
         return redirect(url_for('index'))
     
     return render_template('login.html', title='Sign In', form=form)
