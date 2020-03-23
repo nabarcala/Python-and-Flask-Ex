@@ -6,7 +6,7 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from hashlib import md5
 from wtforms.validators import Regexp
-from sqlalchemy_utils import URLType
+#from sqlalchemy_utils import URLType
 
 # Followers association table
 followers = db.Table('followers',
@@ -86,19 +86,16 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
     
-class Project(db.Model):
+class Projects(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    index = db.Column(db.Integer, autoincrement=True, nullable=False)
     title = db.Column(db.String(30),
                       unique=True,
-                      nullable=False,
                       info={"validators": Regexp("^[A-Za-z0-9_-]*$")})
-    imgfile = db.Column(db.String(30), nullable=False)
-    website = db.Column(URLType, nullable=True)
-    github_url = db.Column(URLType, nullable=False)
-    abandoned = db.Column(db.Boolean)
-    description = db.Column(db.Text, nullable=False)
-    long_desc = db.Column(db.Text, nullable=False)
+#    imgfile = db.Column(db.String(30), nullable=False)
+    website = db.Column(db.String(30))
+    github_url = db.Column(db.String(30))
+    description = db.Column(db.String(400))
 
     def __repr__(self):
-        return f"<Project title: {self.title}>"
+        return '<Project title: {}>'.format(self.title)
+    
