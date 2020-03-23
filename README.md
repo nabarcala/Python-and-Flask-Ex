@@ -34,3 +34,16 @@ After creating a table in the database (e.g. ```flask db migrate -m "users table
 ```
 flask db upgrade
 ```
+Current tables in the database are listed below. Creating the tables are done like so: ```flask db migrate -m "<table_name>"``` where <table_name> is replaced one of the database tables.
+
+* users table
+* posts table
+* new fields in user model
+* followers
+
+## Unit Testing the User Model
+The test suit is located in ```tests.py``` and test the password hashing, user avatar and followers functionality in the user model. This unit test is taken from [Miguel Grinberg's Mega Tutorial Part VIII](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-viii-followers).
+To run the unit test suite, use the following command:
+```
+python3 tests.py
+```
