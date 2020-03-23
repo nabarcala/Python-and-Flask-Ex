@@ -1,0 +1,38 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block app_content %}
+    <div class="card d-flex align-items-center">
+        <img
+             class="card-img-top"
+             src="{{ url_for('images', filename=project.imgfile, width=300) }}"
+             alt="card image cap">
+        <div class="card-body">
+        <h5 class="card-title">{{ project.title|replace("-", " ") }}</h5>
+        <p class="card-text">{{ project.long_desc }}</p>
+
+        {% if project.abandoned %}
+            <p class="abandoned">** Abandoned</p>
+        {% endif %}
+
+        <div class="d-flex flex-wrap">
+            {% if project.website %}
+                <a
+                    href="{{ project.website }}"
+                    target="_blank"
+                    class="card-link"
+                ><i class="fas fa-globe"></i> Website</a>
+            {% endif %}
+            <a
+                href="{{ project.github_url }}"
+                target="_blank"
+                class="card-link"
+            ><i class="fab fa-github"></i> GitHub Repo</a>
+            <a
+                href="#"
+                class="card-link"
+                id="backlink"
+            ><i class="fas fa-arrow-left"></i> Go Back</a>
+        </div>
+    </div>
+    </div>
+{% endblock %}

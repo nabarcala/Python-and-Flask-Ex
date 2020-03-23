@@ -9,7 +9,7 @@ from werkzeug.urls import url_parse
 from datetime import datetime
 
 # Index/Home 
-@app.route('/', methods=['GET', 'POST'])
+#@app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
@@ -27,6 +27,11 @@ def index():
     prev_url = url_for('index', page=posts.prev_num) \
         if posts.has_prev else None
     return render_template('index.html', title='Home', form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
+
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    return render_template('home.html', title='Welcome')
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
@@ -181,3 +186,7 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
+
+@app.route('/projects')
+def projects():
+    return
