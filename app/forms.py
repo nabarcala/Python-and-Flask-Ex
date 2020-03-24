@@ -28,7 +28,9 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
             
 class EditProfileForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    career = StringField('Career', validators=[Length(min=0, max=140)])
+    bio = TextAreaField('Bio', validators=[Length(min=0, max=400)])
+    username = StringField('Username')
     about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
     submit = SubmitField('Submit')
 

@@ -31,7 +31,8 @@ from datetime import datetime
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html', title='Welcome')
+    admin = User.query.get(1)
+    return render_template('home.html', title='Welcome', admin=admin)
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
@@ -108,12 +109,16 @@ def edit_profile():
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
+        current_user.bio = form.bio.data
+        current_user.career = form.career.data
         db.session.commit()
         flash('Your changes have been saved.')
-        return redirect(url_for('edit_profile'))
+        return redirect(url_for('user', username=current_user.username))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
+        form.bio.data = current_user.bio
+        form.career.data = current_user.career
     return render_template('edit_profile.html', title='Edit Profile', form=form)
 
 @app.route('/follow/<username>')
