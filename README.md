@@ -5,5 +5,5 @@ Simple and to the point Python and Flask microservice practice.
 
 
 ## Acknowledgments
-* [Miguel Grinberg's Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). I began with the basics of this web application using this Mega Tutorial.
+* [Miguel Grinberg's Flask Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). I began with the basics of this web application using this Mega Tutorial.
 
