@@ -16,7 +16,7 @@ pip install flask
 ```
 
 ## Web Application
-The application is located in the app folder and can be called from [app.py](app.py). This file calls the flask application instance called app that is located in the app package. Set the FLASK_APP environment variable so Flask knows what to import.
+The application can be called from [portfolio.py](portfolio.py). This file calls the flask application instance called portfolio that is located in the app package. Set the FLASK_APP environment variable so Flask knows what to import. This is done in the [.flaskenv](.flaskenv) file like so:
 ```
 export FLASK_APP=app.py
 ```
@@ -24,21 +24,14 @@ The application can then be run using:
 ```
 flask run
 ```
-After creating a table (e.g. ```flask db migrate -m "users table"```), run the following command to apply the change to the database.
+
+## Database
+SQLAlchemy is a Python SQL toolkit and Object Relational Mapper that allows this application the full power and flexibility of SQL. The application's database is located at the base directory in a file called app.db. This file, along with the migration folder, can be created by running the following commands:
 ```
+flask db init
+flask db migrate -m "Initial tables"
 flask db upgrade
 ```
-Some simple commands to add a user and query all users have been added below. All changes will only be applied if the commit command is called.
-```
-u = User(username='john', email='john@example.com')
-db.session.add(u)
-db.session.commit()
-
-users = User.query.all()
-```
-
-
-
-
+Where -m is the message flag for the comment "Initial tables".
 
 

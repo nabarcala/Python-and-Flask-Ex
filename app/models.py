@@ -5,6 +5,8 @@ import jwt
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from hashlib import md5
+from wtforms.validators import Regexp
+#from sqlalchemy_utils import URLType
 
 # Followers association table
 followers = db.Table('followers',
@@ -20,6 +22,8 @@ class User(UserMixin, db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    bio = db.Column(db.String(140))
+    career = db.Column(db.String(140))
     followed = db.relationship(
         'User', secondary=followers,
         primaryjoin=(followers.c.follower_id == id),
@@ -83,4 +87,17 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+    
+class Projects(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(30),
+                      unique=True,
+                      info={"validators": Regexp("^[A-Za-z0-9_-]*$")})
+#    imgfile = db.Column(db.String(30), nullable=False)
+    website = db.Column(db.String(30))
+    github_url = db.Column(db.String(30))
+    description = db.Column(db.String(400))
+
+    def __repr__(self):
+        return '<Project title: {}>'.format(self.title)
     
