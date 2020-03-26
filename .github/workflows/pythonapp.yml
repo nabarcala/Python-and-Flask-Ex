@@ -28,7 +28,8 @@ jobs:
         pip install -r requirements.txt
     - name: Set up database
       run: |
-        flask db init
+        # No need to initialize if migrations folder already created correctly
+        # flask db init
         flask db migrate
         flask db upgrade
     - name: Lint with flake8
