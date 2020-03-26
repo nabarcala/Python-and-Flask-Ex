@@ -53,7 +53,6 @@ pygobject>=3.26.1
 PyJWT==1.7.1
 pyOpenSSL==17.5.0
 pyserial==3.4
-python-apt>=1.6.4
 python-dateutil==2.8.1
 python-debian==0.1.32
 python-dotenv==0.11.0
