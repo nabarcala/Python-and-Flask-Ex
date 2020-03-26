@@ -49,7 +49,7 @@ pyasn1==0.4.2
 pyasn1-modules==0.2.1
 pycparser==2.20
 pycrypto==2.6.1
-pygobject==3.26.1
+pygobject>=3.26.1
 PyJWT==1.7.1
 pyOpenSSL==17.5.0
 pyserial==3.4
