@@ -47,43 +47,68 @@
 </nav>
 {% endblock %}
 
-{% block content %} 
+{% block content %}  
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
-<!--- Two Column Section -->
-
-
-
-
-
-<!--- Emoji Section -->
-
-  
-<!--- Meet the team -->
-
-
-<!--- Cards -->
-
-
-<!--- Two Column Section -->
-
+    {# application content needs to be provided in the app_content block #}
+    {% block app_content %}{% endblock %}
 
 <!--- Connect -->
-
+<hr class="my-4">
+<div class="container-fluid padding">
+    <div class="row text-center padding">
+        <div class="col-12">
+            <h2>Connect</h2>
+        </div>
+        <div class="col-12 social padding">
+            <a href="#"><i class="fab fa-instagram"?></i></a>
+            <a href="#"><i class="fab fa-instagram"?></i></a>
+            <a href="#"><i class="fab fa-github"?></i></a>
+            <a href="#"><i class="fab fa-linkedin"?></i></a>
+        </div>
+    </div>
+</div>
 
 <!--- Footer -->
-
-
-    
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-info" role="alert">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        
-        {# application content needs to be provided in the app_content block #}
-        {% block app_content %}{% endblock %}
+<footer>
+    <div class="contrainer-fluid padding">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <!-- Logo -->
+                <p>NB's Portfolio</p>
+                <hr class="light">
+                <p>nabarcala@gmail.com</p>
+                <p>Florida, US</p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Hours</h5>
+                <hr class="light">
+                <p>r</p>
+                <p>eiure erew ewr</p>
+                <p>wwr qe qeuw uewew s</p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Hours</h5>
+                <hr class="light">
+                <p>r</p>
+                <p>eiure erew ewr</p>
+                <p>wwr qe qeuw uewew s</p>
+            </div>
+            <div class="col-12">
+                <hr class="light">
+                <h5>&copy; natsketch.com</h5>
+            </div>
+        </div>
+    </div>
+</footer>
    
 {% endblock %}
 
@@ -95,3 +120,7 @@
 <script src="https://kit.fontawesome.com/d0e300c793.js" crossorigin="anonymous"></script>
 {{ moment.include_moment() }}
 {% endblock %}
+
+
+
+
