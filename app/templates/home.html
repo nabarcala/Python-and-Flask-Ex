@@ -1,20 +1,34 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <div class="jumbotron d-flex justify-content-center">
-        <h1 class="name">NB's Portfolio</h1>
-    </div>
-    <div class="card d-flex align-items-center">
-        <div class="card-body">
-            <h3>Natacha Barcala</h3>
-            <h6>{{ admin.career }}</h6>
-            <h5 class="card-title">
-                Python | Flask | SQL | REST | HTML5 | CSS | JavaScript 
-            </h5>
-            <p>
-                <!--      bio here      -->
-                {{ admin.bio }}
-            </p>
+
+<!--- Image Slider -->
+<div id="slides" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="#slides" data-slide-to="0"></li>
+        <li data-target="#slides" data-slide-to="1"></li>
+        <li data-target="#slides" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='img/blue-and-purple-cosmic-sky-956999.jpg') }}">
+            <div class="carousel-caption">
+                <h1 class="display-2">Natacha Barcala</h1>
+                <h3>{{ admin.career }}</h3>
+                <h4>Python | Flask | SQL | REST | HTML5 | CSS | JavaScript</h4>
+                <button type="button" class="btn btn-outline-light btn-lg">VIEW RESUME</button>
+                <button type="button" class="btn btn-outline-light btn-lg">Contact</button>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/blue-and-purple-cosmic-sky-956999.jpg') }}">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/blue-and-purple-cosmic-sky-956999.jpg') }}">
         </div>
     </div>
+</div>
+
+
+
 {% endblock %}

@@ -1,42 +1,82 @@
 {% extends 'bootstrap/base.html' %}
 
-{% block title %}
+{% block metas %} 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %} 
+
+{% block styles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+{% endblock %} 
+
+{% block title %} 
     {% if title %}{{ title }} - NB's Portfolio{% else %}Welcome to NB's Portfolio{% endif %}
 {% endblock %} 
 
-{% block navbar %}
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ url_for('home') }}">NB's Portfolio</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
-<!--                     <li><a href="{{ url_for('explore') }}">Explore</a></li> -->
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    {% if current_user.is_anonymous %}
-<!--                    <li><a href="{{ url_for('login') }}">Login</a></li>-->
-                    {% else %}
-                    <li><a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                    {% endif %}
-                </ul>
-            </div>
+{% block navbar %} 
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="{{ url_for('home') }}">NB's Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav nl-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('portfolio') }}">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 {% endblock %}
 
-{% block content %}
-    <div class="container">
+{% block content %} 
+<!--- Image Slider -->
+
+
+<!--- Jumbotron -->
+
+
+<!--- Welcome Section -->
+
+
+<!--- Three Column Section -->
+
+
+<!--- Two Column Section -->
+
+
+<!--- Fixed background -->
+
+
+<!--- Emoji Section -->
+
+  
+<!--- Meet the team -->
+
+
+<!--- Cards -->
+
+
+<!--- Two Column Section -->
+
+
+<!--- Connect -->
+
+
+<!--- Footer -->
+
+
+    
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
@@ -44,14 +84,17 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        {# application content needs to be provided in the app_content block #}
-        {% block app_content %}
         
-        {% endblock %}
-    </div>
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+   
 {% endblock %}
 
 {% block scripts %}
-    {{ super() }}
-    {{ moment.include_moment() }}
+{{ super() }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+{{ moment.include_moment() }}
 {% endblock %}
