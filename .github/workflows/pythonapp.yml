@@ -7,9 +7,12 @@ on:
   push:
     branches: 
     - master
-    - dev
+    - dev/*
   pull_request:
-    branches: [ master ]
+    branches: 
+    - master
+    - dev/*
+    - web-app
 
 jobs:
   build:
