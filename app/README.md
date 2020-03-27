@@ -4,10 +4,11 @@ Some notes from building the web application.
 ## Virtual Environment
 Start by installing Flask in a virtual environmnet, e.g. virtualenv. This can be downloaded from [https://pypi.python.org/pypi/virtualenv](https://pypi.python.org/pypi/virtualenv).
 
-I created a directory for this project (e.g. python-flask-ex) and created and activated a virtual environment called venv.
+I created a directory for this project (e.g. python-flask-ex) and created and activated a virtual environment called flask_venv.
 ```
-virtualenv venv
-. venv/bin/activate
+python3 -m venv flask_venv
+virtualenv flask_venv
+source flask_venv/Scripts/activate
 ```
 
 The simplest way to install Flask:

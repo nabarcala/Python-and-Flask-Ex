@@ -1,31 +1,26 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-<div class="card d-flex align-items-center">
-
-        <div class="card-body">
-        <h5 class="card-title">{{ project.title|replace("-", " ") }}</h5>
-        <p class="card-text">{{ project.description }}</p>
-
-        <div class="d-flex flex-wrap">
-            {% if project.website %}
-                <a
-                    href="{{ project.website }}"
-                    target="_blank"
-                    class="card-link"
-                ><i class="fas fa-globe"></i> Website</a>
-            {% endif %}
-            <a
-                href="{{ project.github_url }}"
-                target="_blank"
-                class="card-link"
-            ><i class="fab fa-github"></i> GitHub Repo</a>
-            <a
-                href="{{ go_back }}"
-                class="card-link"
-                id="backlink"
-            ><i class="fas fa-arrow-left"></i> Go Back</a>
+<div class="container-fluid padding">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="{{ url_for('static', filename='img/team3.png') }}" class="img-fluid">
         </div>
+        <div class="col-md-12 col-lg-6 padding">
+            <h2>{{ project.title|replace("-", " ") }}</h2>
+            <p>{{ project.description }}</p>
+            <br>
+            {% if project.website %}
+                <a href="{{ project.website }}" class="btn btn-outline-dark btn-lg"><i class="fas fa-globe"></i>   Website</a>
+            {% endif %}
+            {% if project.github_url %}
+                <a href="{{ project.github_url }}" class="btn btn-outline-dark btn-lg"><i class="fab fa-github"></i>    GitHub</a>
+            {% endif %}
+            <br><br>
+            <p><a href="{{ go_back }}" class="btn"><i class="fas fa-arrow-left"></i>    Go Back</a></p>
+            
+        </div>
+        
     </div>
 </div>
 {% endblock %}
