@@ -6,6 +6,8 @@
     font-family: 'Poppins', sans-serif;
     color: #222;
 }
+
+/*--- Navigation Bar --*/
 .navbar {
     padding: .8rem;
 }
@@ -15,6 +17,8 @@
 .nav-link {
     font-size: 1.1em !important;
 }
+
+/*--- Carousel --*/
 .carousel-inner img {
     width: 100%;
     height: 100%;
@@ -36,6 +40,36 @@
     padding-bottom: 1rem;
 }
 
+/*--- Jumbotron class --*/
+.jumbotron {
+    padding: 1rem;
+    border-radius: 0;
+}
+
+/*--- Padding class --*/
+.padding {
+    padding-bottom: 2rem;
+}
+
+/*--- Welcome class --*/
+.welcome {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+.welcome hr {
+    border-top: 2px solid #b4b4b4;
+    width: 95%;
+    margin-top: .3rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
 
 
 
@@ -52,7 +86,7 @@
 }
 
 
-/*---Firefox Bug Fix --*/
+/*--- Firefox Bug Fix --*/
 .carousel-item {
   transition: -webkit-transform 0.5s ease;
   transition: transform 0.5s ease;
@@ -60,6 +94,7 @@
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
 }
+
 /*--- Fixed Background Image --*/
 figure {
   position: relative;
@@ -89,6 +124,7 @@ figure {
           transform: translateZ(0);
   will-change: transform;
 }
+
 /*--- Bootstrap Padding Fix --*/
 [class*="col-"] {
     padding: 1rem;
