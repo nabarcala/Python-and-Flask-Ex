@@ -22,7 +22,7 @@ class User(UserMixin, db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
-    bio = db.Column(db.String(140))
+    headline = db.Column(db.String(140))
     career = db.Column(db.String(140))
     followed = db.relationship(
         'User', secondary=followers,

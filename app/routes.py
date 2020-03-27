@@ -109,7 +109,7 @@ def edit_profile():
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
-        current_user.bio = form.bio.data
+        current_user.headline = form.headline.data
         current_user.career = form.career.data
         db.session.commit()
         flash('Your changes have been saved.')
@@ -117,7 +117,7 @@ def edit_profile():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-        form.bio.data = current_user.bio
+        form.headline.data = current_user.headline
         form.career.data = current_user.career
     return render_template('edit_profile.html', title='Edit Profile', form=form)
 

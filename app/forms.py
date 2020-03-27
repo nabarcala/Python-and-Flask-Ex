@@ -29,7 +29,7 @@ class RegistrationForm(FlaskForm):
             
 class EditProfileForm(FlaskForm):
     career = StringField('Career', validators=[Length(min=0, max=140)])
-    bio = TextAreaField('Bio', validators=[Length(min=0, max=400)])
+    headline = TextAreaField('Headline', validators=[Length(min=0, max=400)])
     username = StringField('Username')
     about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
     submit = SubmitField('Submit')
