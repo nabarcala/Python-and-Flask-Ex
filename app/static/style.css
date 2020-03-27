@@ -79,10 +79,49 @@
     margin: 1rem;
 }
 
+/*--- Connect Section --*/
+.social a {
+    font-size: 4em;
+    padding: 3rem;
+}
+.fa-instagram {
+    color: #3f729b;
+}
+.fa-linkedin {
+    color: #0e76a8;
+}
+.fa-github {
+    color: #6e5494;
+}
+.fa-instagram:hover, .fa-linkedin:hover, .fa-github:hover {
+    color: #d5d5d5;
+}
 
-
-
-
+/*--- Footer --*/
+.footer {
+    background-color: #3f3f3f;
+    
+    padding-top: 2rem;
+/*    color: #000;*/
+}
+.footer p, h5 {
+    color: #d5d5d5;
+}
+hr.light {
+    border-top: 1px solid #d5d5d5;
+    width: 70%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+}
+.footer a {
+    color: #d5d5d5;
+}
+hr.light-100 {
+    border-top: 1px solid #d5d5d5;
+    width 100%%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+}
 
 
 
