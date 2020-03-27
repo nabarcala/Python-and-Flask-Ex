@@ -64,7 +64,20 @@
     margin-bottom: 1rem;
 }
 
-
+/*--- Icons --*/
+.fa-project-diagram {
+    color: #2162af;
+}
+.fa-paw {
+    color: brown;
+}
+.fa-palette {
+    color: #563d7c;
+}
+.fa-project-diagram, .fa-paw, .fa-palette {
+    font-size: 4em;
+    margin: 1rem;
+}
 
 
 
