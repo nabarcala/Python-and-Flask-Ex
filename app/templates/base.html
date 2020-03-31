@@ -1,45 +1,47 @@
 {% extends 'bootstrap/base.html' %}
 
-{% block metas %} 
+{% block metas %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{% endblock %} 
+{% endblock %}
 
 {% block styles %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-{% endblock %} 
+{% endblock %}
 
-{% block title %} 
+{% block title %}
     {% if title %}{{ title }} - NB's Portfolio{% else %}Welcome to NB's Portfolio{% endif %}
-{% endblock %} 
+{% endblock %}
 
-{% block navbar %} 
+{% block navbar %}
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <!-- Logo -->
-        <a class="navbar-brand" href="{{ url_for('home') }}">NB's Portfolio</a>
+        <a class="navbar-brand" href="{{ url_for('general.home') }}">NB's Portfolio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                    <a class="nav-link" href="{{ url_for('general.home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('portfolio') }}">Portfolio</a>
+                    <a class="nav-link" href="{{ url_for('general.portfolio') }}">Portfolio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
                 {% if current_user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('user', username=current_user.username) }}">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-                </li>
+                    {% if current_user.is_admin %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.admin_dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                    </li>
+                    {% endif %}
                 {% endif %}
             </ul>
         </div>
@@ -47,7 +49,7 @@
 </nav>
 {% endblock %}
 
-{% block content %}  
+{% block content %}
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
@@ -80,7 +82,6 @@
     <div class="contrainer-fluid padding">
         <div class="row text-center">
             <div class="col-md-4">
-                <!-- Logo -->
                 <p>NB's Portfolio</p>
                 <hr class="light">
                 <p>nabarcala@gmail.com</p>
@@ -98,18 +99,18 @@
                 <hr class="light">
                 <h5>Hours</h5>
                 <hr class="light">
-                <p>r</p>
+                <p><a class="nav-link" href="{{ url_for('auth.login') }}">Login</a></p>
                 <p>eiure erew ewr</p>
                 <p>wwr qe qeuw uewew s</p>
             </div>
             <div class="col-12">
                 <hr class="light-100">
-                <h5>&copy; natsketch.com</h5>
+                <h5>Copyright &copy; natsketch.com 2020</h5>
             </div>
         </div>
     </div>
 </footer>
-   
+
 {% endblock %}
 
 {% block scripts %}
@@ -121,7 +122,3 @@
 <script src="https://kit.fontawesome.com/d0e300c793.js" crossorigin="anonymous"></script>
 {{ moment.include_moment() }}
 {% endblock %}
-
-
-
-

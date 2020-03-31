@@ -1,0 +1,10 @@
+<!-- Resource not found -->
+
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="container-fluid">
+    <h1>User is not authorized</h1>
+    <p><a href="{{ url_for('general.home') }}">Back</a></p>
+</div>
+{% endblock %}

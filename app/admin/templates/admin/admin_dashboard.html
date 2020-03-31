@@ -1,0 +1,45 @@
+
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Admin Dashboard</h1>
+        </div>
+        <hr>
+        <div class="col-12">
+            <p class="lead">
+            For administrators only!
+            </p>
+        </div>
+    </div>
+</div>
+<!--- Cards -->
+<div class="container-fluid padding">
+    <div class="row padding">
+        {% if projects %}
+            {% for project in projects %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ url_for('static', filename='img/team1.png')}}">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ project.title|replace("-", " ") }}</h4>
+                            <p class="card-text">{{ project.description }}</p>
+                            <a href="{{ paths['detail'] }}/{{ project.title }}" class="btn btn-outline-secondary">View</a>
+
+                            <a href="{{ paths['edit'] }}/{{ project.title }}" class="btn btn-primary">
+                            <i class="fas fa-edit"></i></a>
+                            <a href="{{ paths['delete'] }}/{{ project.title }}" class="btn btn-danger delete-btn">
+                            <i class="fas fa-trash-alt"></i></a>
+                            <a href="{{ paths['moveup'] }}/{{ project.index }}" class="btn btn-dark">
+                            <i class="fas fa-angle-up"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

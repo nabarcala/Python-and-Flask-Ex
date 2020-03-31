@@ -25,7 +25,16 @@ mail = Mail(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
-from app import routes, models, errors
+from app import models, errors
+
+# Import blueprint instances
+from app.general.routes import general
+from app.admin.routes import admin
+from app.auth.routes import auth
+
+app.register_blueprint(general)
+app.register_blueprint(admin)
+app.register_blueprint(auth)
 
 # For logging
 if not app.debug:
@@ -39,7 +48,7 @@ if not app.debug:
         mail_handler = SMTPHandler(mailhost=(app.config['MAIL_SERVER'], app.config['MAIL_PORT']), fromaddr='no-reply@' + app.config['MAIL_SERVER'], toaddrs=app.config['ADMINS'], subject='Portfolio Failure', credentials=auth, secure=secure)
         mail_handler.setLevel(logging.ERROR)
         app.logger.addHandler(mail_handler)
-        
+
     if not os.path.exists('logs'):
         os.mkdir('logs')
     file_handler = RotatingFileHandler('portfolio.log', maxBytes=10240, backupCount=10)
@@ -49,7 +58,7 @@ if not app.debug:
 
     app.logger.setLevel(logging.INFO)
     app.logger.info('Portfolio startup')
-    
+
 # Used for future language indexing
 #@babel.localeselector
 #def get_locale():

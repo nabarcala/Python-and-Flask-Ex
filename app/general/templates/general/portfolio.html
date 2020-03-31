@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<!--- Portfolio -->
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Projects</h1> 
+        </div>
+        <hr>
+    </div>
+</div>
+
+<!--- Cards -->
+<div class="container-fluid padding">
+    <div class="row padding">
+        {% if projects %}
+            {% for project in projects %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ url_for('static', filename='img/team1.png')}}">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ project.title|replace("-", " ") }}</h4>
+                            <p class="card-text">{{ project.description }}</p>
+                            <a href="{{ paths['detail'] }}/{{ project.title }}" class="btn btn-outline-secondary">View</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+<div class="container-fluid padding">
+    <div class="row padding">
+        
+    </div>
+</div>
+
+{% endblock %}
