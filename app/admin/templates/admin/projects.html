@@ -1,0 +1,69 @@
+
+{% extends "base.html" %}
+
+{% block title %}Projects{% endblock %}
+
+{% block app_content %}
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Projects</h1>
+        </div>
+        <hr>
+        <!-- <div class="col-12">
+            <p class="lead">
+            For administrators only!
+            </p>
+        </div> -->
+    </div>
+</div>
+<!--- Projects -->
+<div class="container-fluid padding table-padding">
+    {% if projects %}
+      <div class="center">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th width="15%"> Name </th>
+              <th width="40%"> Description </th>
+              <th width="15%"> Website </th>
+              <th width="15%"> Github </th>
+              <th width="15%"> Edit </th>
+              <th width="15%"> Delete </th>
+          </thead>
+          <tbody>
+            {% for project in projects %}
+              <tr>
+                <td> {{ project.title|replace("-", " ") }} </td>
+                <td> {{ project.description }} </td>
+                {% if project.website %}
+                  <td> {{ project.website }} </td>
+                  {% else %}
+                    <td>  </td>
+                  {% endif %}
+                {% if project.github_url %}
+                  <td> {{ project.github_url }} </td>
+                {% else %}
+                  <td>  </td>
+                {% endif %}
+                <td> <a href="{{ url_for('admin.edit_project', id=project.id) }}"><i class="fa fa-pencil">  Edit </a></td>
+                <td> <a href="{{ url_for('admin.delete_project', id=project.id) }}"><i class="fa fa-trash"> Delete </a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div style="text-align: center">
+    {% else %}
+        <div style="text-align: center">
+          <h3> No projects have been added. </h3>
+        </div>
+      </div>
+    {% endif %}
+
+    <a href="{{ url_for('admin.add_project') }}">
+      <button type="button" class="btn btn-outline-secondary btn-lg"> <i class="fa fa-plus"></i> Add Project </button>
+    </a>
+
+</div>
+{% endblock %}

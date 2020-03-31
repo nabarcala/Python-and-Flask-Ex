@@ -16,12 +16,19 @@ auth = Blueprint('auth', __name__,
 
 @auth.before_request
 def before_request():
+    """
+    Before before_request
+    """
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    Admin/User login
+    """
     # Redirect if user is logged in already
     if current_user.is_authenticated:
         return redirect(url_for('general.home'))
@@ -46,14 +53,22 @@ def login():
 
     return render_template('auth/login.html', title='Sign In', form=form)
 
+
 @auth.route('/logout')
 def logout():
+    """
+    Logout user
+    """
     logout_user()
     return redirect(url_for('general.home'))
 
-# Register
+
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
+    """
+    Register a user.
+    is_admin is false as default.
+    """
     # Check if user is logged in already
     if current_user.is_authenticated:
         return redirect(url_for('general.home'))
@@ -68,8 +83,12 @@ def register():
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', title='Register', form=form)
 
+
 @auth.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
+    """
+    Reset password request
+    """
     if current_user.is_authenticated:
         return redirect(url_for('general.home'))
     form = ResetPasswordRequestForm()
@@ -81,8 +100,12 @@ def reset_password_request():
         return redirect(url_for('auth.login'))
     return render_template('auth/reset_password_request.html', title='Reset Password', form=form)
 
+
 @auth.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reset_password(token):
+    """
+    reset password
+    """
     if current_user.is_authenticated:
         return redirect(url_for('general.home'))
     user = User.verify_reset_password_token(token)

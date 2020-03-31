@@ -1,10 +1,15 @@
 /*@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');*/
 
 * {
-    height: auto;
-    width: auto;
+    /* height: 100%;
+    width: 100%; */
     font-family: 'Poppins', sans-serif;
     color: #222;
+}
+
+/* Forms */
+.container-form {
+    padding-left: 20rem;
 }
 
 /*--- Navigation Bar --*/
@@ -49,6 +54,9 @@
 /*--- Padding class --*/
 .padding {
     padding-bottom: 2rem;
+}
+.padding-top {
+  padding-top: 2rem;
 }
 
 /*--- Welcome class --*/
@@ -105,7 +113,7 @@
 /*--- Footer --*/
 .footer {
     background-color: #3f3f3f;
-    
+
     padding-top: 2rem;
 /*    color: #000;*/
 }
@@ -250,7 +258,3 @@ Large (lg) devices (desktops, 992px and up)
 Extra (xl) large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { ... }
 */
-
-
-
-
