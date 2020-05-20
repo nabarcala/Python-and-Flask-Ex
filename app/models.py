@@ -16,13 +16,14 @@ followers = db.Table('followers',
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    is_admin = db.Column(db.Boolean, default=False)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
-    bio = db.Column(db.String(140))
+    headline = db.Column(db.String(140))
     career = db.Column(db.String(140))
     followed = db.relationship(
         'User', secondary=followers,
@@ -97,6 +98,7 @@ class Projects(db.Model):
     website = db.Column(db.String(30))
     github_url = db.Column(db.String(30))
     description = db.Column(db.String(400))
+    type = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Project title: {}>'.format(self.title)

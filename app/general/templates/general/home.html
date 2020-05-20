@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+
+<!-- <script type="text/javascript" src="../../../static/js/portfolio.js" defer></script> -->
+
+{% endblock %}
+
+
+{% block app_content %}
+
+<!--- Welcome -->
+<main class="site-main">
+    
+    <!-- Banner -->
+    <section class="site-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 site-title">
+                    <h3 class="title-text">Hey</h3>
+                    <h1 class="title-text text-uppercase">I am Natacha</h1>
+                    <h4 class="title-text text-uppercase">{{ admin.career }}</h4>
+                
+                    <div class="site-buttons">
+                        <div class="d-flex flex-row flex-wrap">
+                            <button type="button" class="btn button btn-outline-primary mb1 purple mr-4 text-uppercase">view resume</button>
+                            <button type="button" class="btn button btn-outline-secondary text-uppercase">about me</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 banner-image">
+                    <img src="././static/img/300Logo.png" alt="banner-img" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section class="about-me">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="about-image">
+                        <img src="../../../static/img/team2.png" alt="About me" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 about-title">
+                    <h2 class="text-uppercase pt-5">
+                        <span>Let me</span>
+                        <span>introduce</span>
+                        <span>myself</span>
+                    </h2>
+                    <div class="paragraph py-4 w-75">
+                        <p class="para">
+                            kewqjr ewr ewrewr wekjrh weqkr hewrkjew kjrewkjrk ewkjjrh ewwe rjk ewkrewkqjr we    ;lir    we rjkew roiw   ekjr
+                        </p>
+                        <p class="para">
+                            a;lwe ;aw ;erk
+                        </p>
+                    </div>
+                    <button type="button" class="btn button btn-outline-primary text-uppercase">Download Resume</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Offered -->
+
+    <section class="services-offered">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center services-title">
+                    <h1 class="text-uppercase title-text">Services Offered</h1>
+                    <p class="para">
+                        jkefwklqweqwel qw;eqwlk qwle qweqw oeqwoie qweqw keqweo q weqwe qrekjqjw e.
+                    </p>
+                </div>
+            </div>
+            <div class="container services-list">
+                <div class="row">
+                    <!-- Python Dev -->
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="services">
+                            <div class="services-img text-center py-4">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-uppercase font-roboto">Python Developer</h5>
+                                <p class="card-text text-secondary">
+                                    qwl ewq; qewwq e eqkr ejkwkleqw rkjew rweqr kewqroiqe   oro kkrj ew lr  ewr.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Web Developer -->
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="services">
+                            <div class="services-img text-center py-4">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-uppercase font-roboto">Web Developer</h5>
+                                <p class="card-text text-secondary">
+                                    qwl ewq; qewwq e eqkr ejkwkleqw rkjew rweqr 
+                                    kewqroiqe   
+                                    oro kkrj ew lr  ewr.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hobby Artist -->
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="services">
+                            <div class="services-img text-center py-4">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-uppercase font-roboto">Hobby Artist</h5>
+                                <p class="card-text text-secondary">
+                                    qwl ewq; qewwq e eqkr ejkwkleqw rkjew rweqr kewqroiqe   oro kkrj ew lr  ewr.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Masks -->
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="services">
+                            <div class="services-img text-center py-4">
+                                <i class="fas fa-head-side-mask"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-uppercase font-roboto">Cotton Masks</h5>
+                                <p class="card-text text-secondary">
+                                    qwl ewq; qewwq e eqkr ejkwkleqw rkjew rweqr kewqroiqe   oro kkrj ew lr  ewr.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <script type="text/javascript" src="../../../static/js/home.update.js"></script>  -->
+
+    <!-- Projects Done -->
+    <section class="project-area">
+        <div class="container">
+            <div class="project-title pb-5">
+                <h1 class="text-uppercase title-h1">
+                    Recently Done Projects
+                </h1>
+                <h1 class="text-uppercase title-h1">Quality Work</h1>
+            </div>
+
+            <!-- Tab Links -->
+            <div class="tab">
+                <button id="defaultOpen" class="btn btn-light tablinks" onclick="displayProjects(event, 'All')">All</button>
+                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Software')">Software</button>
+                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Art')">Art</button>
+                <!-- <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Latest')">Latest</button> -->
+                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Upcoming')">Upcoming</button>
+              </div>
+              
+              <!-- Tab content -->
+            <div id="All" class="tabcontent">
+                {% if projects %}
+                
+                    <div class="row grid" id="load-more">
+                        {% for project in projects %} 
+                        {% include 'general/projects.html' %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="para">No projects</p>
+                {% endif %}
+            </div>
+            <!-- Software Projects -->
+            <div id="Software" class="tabcontent">
+                {% if software_projects %}
+                <div class="row grid" id="load-more">
+                    {% for project in software_projects %} 
+                    {% include 'general/projects.html' %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p class="para">No projects</p>
+                {% endif %}
+            </div>
+            <!-- Art Projects -->
+            <div id="Art" class="tabcontent">
+                {% if art_projects %}
+                <div class="row grid" id="load-more">
+                    {% for project in art_projects %} 
+                    {% include 'general/projects.html' %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p class="para">No projects</p>
+                {% endif %}
+            </div>
+            <!-- Latest Projects -->
+            <!-- <div id="Latest" class="tabcontent">
+                {% if latest_projects %}
+                <div class="row grid" id="load-more">
+                    {% for project in latest_projects %} 
+                    {% include 'general/projects.html' %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p class="para">No latest projects</p>
+                {% endif %}
+            </div> -->
+
+            <div id="Upcoming" class="tabcontent">
+                {% if upcoming_projects %}
+                <div class="row grid" id="load-more">
+                    {% for project in upcoming_projects %} 
+                    {% include 'general/projects.html' %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p class="para">No upcoming projects</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}

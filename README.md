@@ -7,4 +7,6 @@ Simple and to the point Python and Flask microservice practice.
 ## Acknowledgments
 * [Miguel Grinberg's Flask Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). I began with the basics of this web application using this Mega Tutorial.
 * [Responsive Bootstrap Website Start To Finish with Bootstrap 4, HTML5 & CSS3 by Drew Ryan](https://www.youtube.com/watch?v=9cKsq14Kfsw) on YouTube explains the basics of using Bootstrap to create a clean and respnsive website. I used this tutorial to create different sections of my web application.
+* [Complete Portfolio Website with Bootstrap - HTML/CSS by Daily Tuition](https://www.youtube.com/watch?v=dgKSqz3it50) on YouTube also explained how to create a complete portfolio website with Bootstrap using HTML and CSS.
+* [Build a CRUD Web App With Python and Flask - Part One by Mbithe Nzomo](https://scotch.io/tutorials/build-a-crud-web-app-with-python-and-flask-part-one#toc-blueprints) had very detailed examples on how to organize this project using Blueprints.
 

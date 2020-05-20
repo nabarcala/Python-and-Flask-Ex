@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Admin Dashboard</h1>
+        </div>
+        <hr>
+        <div class="col-12">
+            <!-- <p class="lead">
+            For administrators only!
+            </p> -->
+            <p class="lead"><a href="{{ url_for('admin.list_projects') }}">View Projects</a></p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

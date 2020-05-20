@@ -6,6 +6,9 @@
     <div class="row welcome text-center">
         <div class="col-12">
             <h1 class="display-4">Projects</h1>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('new_project') }}"><i class="fas fa-edit"?></i> Create new project</a>
+            {% endif %}
         </div>
         <hr>
     </div>
@@ -41,7 +44,7 @@
 
 <div class="container-fluid padding">
     <div class="row padding">
-        
+
     </div>
 </div>
 
