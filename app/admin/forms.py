@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, FileField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
-from app.models import User
+from app.models import User, Projects
 
 class EditProfileForm(FlaskForm):
     career = StringField('Career', validators=[Length(min=0, max=140)])
@@ -21,9 +21,9 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError('Please use a different username.')
 
 # Form to create posts
-class PostForm(FlaskForm):
-    post = TextAreaField('Say something', validators=[DataRequired(), Length(min=1, max=140)])
-    submit = SubmitField('Submit')
+# class PostForm(FlaskForm):
+#     post = TextAreaField('Say something', validators=[DataRequired(), Length(min=1, max=140)])
+#     submit = SubmitField('Submit')
 
 class ProjectForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=1, max=140)])

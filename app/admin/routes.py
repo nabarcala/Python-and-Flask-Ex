@@ -68,7 +68,7 @@ def add_project(id):
             flash('Your project post is now live!')
         except:
             flash('Error: project name already exists.')
-        return redirect(url_for('portfolio'))
+            return redirect(url_for('portfolio'))
 
         return redirect(url_for('admin.list_projects'))
 

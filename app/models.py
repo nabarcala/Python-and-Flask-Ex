@@ -98,6 +98,7 @@ class Projects(db.Model):
     website = db.Column(db.String(30))
     github_url = db.Column(db.String(30))
     description = db.Column(db.String(400))
+    type = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Project title: {}>'.format(self.title)

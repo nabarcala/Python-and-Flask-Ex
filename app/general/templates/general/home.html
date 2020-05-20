@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% block styles %}
+{{ super() }}
+
+<!-- <script type="text/javascript" src="../../../static/js/portfolio.js" defer></script> -->
+
+{% endblock %}
+
+
 {% block app_content %}
 
 <!--- Welcome -->
@@ -12,14 +20,13 @@
                 <div class="col-lg-6 col-md-12 site-title">
                     <h3 class="title-text">Hey</h3>
                     <h1 class="title-text text-uppercase">I am Natacha</h1>
-                    <h4 class="title-text text-uppercase">Software Engineer</h4>
+                    <h4 class="title-text text-uppercase">{{ admin.career }}</h4>
                 
                     <div class="site-buttons">
                         <div class="d-flex flex-row flex-wrap">
                             <button type="button" class="btn button btn-outline-primary mb1 purple mr-4 text-uppercase">view resume</button>
                             <button type="button" class="btn button btn-outline-secondary text-uppercase">about me</button>
-                            <!-- <button type="button" class="btn button primary-button mr-4 text-uppercase">view resume</button>
-                            <button type="button" class="btn button secondary-button text-uppercase">about me</button> -->
+                            
                         </div>
                     </div>
                 </div>
@@ -136,9 +143,59 @@
         </div>
     </section>
 
-    <!-- Projects Done -->
+    <!-- <script type="text/javascript" src="../../../static/js/home.update.js"></script>  -->
 
-    
+    <!-- Projects Done -->
+    <section class="project-area">
+        <div class="container">
+            <div class="project-title pb-5">
+                <h1 class="text-uppercase title-h1">
+                    Recently Done Projects
+                </h1>
+                <h1 class="text-uppercase title-h1">Quality Work</h1>
+            </div>
+
+            <!-- Tab Links -->
+            <div class="tab">
+                <button id="defaultOpen" class="btn btn-light tablinks" onclick="displayProjects(event, 'All')">All</button>
+                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Software')">Software</button>
+                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Art')">Art</button>
+                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Latest')">Latest</button>
+                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Upcoming')">Upcoming</button>
+              </div>
+              
+              <!-- Tab content -->
+            <div id="All" class="tabcontent">
+                {% if projects %}
+                    <div class="row grid" id="load-more">
+                        {% include 'general/projects.html' %}
+                    </div>
+                {% else %}
+                    <p class="para">No projects</p>
+                {% endif %}
+            </div>
+            
+            <div id="Software" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p>
+            </div>
+            
+            <div id="Art" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
+
+            <div id="Latest" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
+
+            <div id="Upcoming" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
+        </div>
+    </section>
 
 </main>
 

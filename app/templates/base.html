@@ -3,11 +3,24 @@
 {% block metas %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:;base64,=">
 {% endblock %}
 
 {% block styles %}
+
+<!-- BootStrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- Custom CSS -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<!-- <script type="text/javascript" src="../../../static/js/jquery.3.5.1.min.js">
+
+    $(document).ready(function() {
+          alert();
+        });
+    </script> -->
+
 {% endblock %}
 
 {% block title %}
@@ -29,8 +42,23 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="mr-auto"></div>
                 <ul class="navbar-nav">
+
+                    {% if current_user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('general.home') }}">Home</a>
+                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url_for('admin.admin_dashboard') }}">Dashboard<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                    </li>
+
+                    {% else %}
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('general.home') }}">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -50,7 +78,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
-                    
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+                    </li>
+
+                    {% endif %}
+
                 </ul>
             </div>
         </nav>
@@ -70,12 +105,44 @@
     {# application content needs to be provided in the app_content block #}
     {% block app_content %}{% endblock %}
 
+
+<footer class="footer">
+    <div class="container">
+        <div class="">
+            <div class="site-logo text-center py-4">
+                <a href="#"><img src="../static/img/icon.png" alt="logo"></a>
+            </div>
+            <div class="social text-center">
+                <h5 class="text-uppercase">Follow Me</h5>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-etsy"></i></a>
+            </div>
+            <div class="copyrights text-center">
+                <p class="para">
+                    Copyright 2020 All rights reserved | This template is made with by
+                    <a href="#"><span style="color: var(--primary-color)"></span></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
+
+<!-- AJAX and BootStrap -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/d0e300c793.js" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../../static/js/portfolio.js" defer></script>
+
 {{ moment.include_moment() }}
 {% endblock %}
