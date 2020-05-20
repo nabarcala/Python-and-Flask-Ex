@@ -18,9 +18,17 @@ def home():
     """
     Home page
     """
-    projects = Projects.query.limit(3).all()
+    projects = Projects.query.limit(6).all()
+    software_projects = Projects.query.filter_by(type='software').limit(6).all()
+    art_projects = Projects.query.filter_by(type='art').limit(6).all()
+    latest_projects = Projects.query.filter_by(type='latest').limit(6).all()
+    upcoming_projects = Projects.query.filter_by(type='upcoming').limit(6).all()
+
     admin = User.query.get(1)
-    return render_template('general/home.html', projects=projects, title='Welcome', admin=admin)
+    return render_template('general/home.html', projects=projects, 
+        software_projects=software_projects, art_projects=art_projects, 
+        latest_projects=latest_projects, upcoming_projects=upcoming_projects, 
+        title='Welcome', admin=admin)
 
 @general.route('/update', methods=['POST'])
 def update():

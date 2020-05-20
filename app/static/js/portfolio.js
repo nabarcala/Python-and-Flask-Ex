@@ -1,7 +1,6 @@
 
 // Get the element with id="default-open" and click on it
-defaultOpen = document.getElementById("defaultOpen")
-defaultOpen.click();
+document.getElementById("defaultOpen").click();
 
 function displayProjects(evt, projectName) {
   // Declare all variables

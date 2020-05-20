@@ -160,39 +160,70 @@
                 <button id="defaultOpen" class="btn btn-light tablinks" onclick="displayProjects(event, 'All')">All</button>
                 <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Software')">Software</button>
                 <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Art')">Art</button>
-                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Latest')">Latest</button>
+                <!-- <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Latest')">Latest</button> -->
                 <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Upcoming')">Upcoming</button>
               </div>
               
               <!-- Tab content -->
             <div id="All" class="tabcontent">
                 {% if projects %}
+                
                     <div class="row grid" id="load-more">
+                        {% for project in projects %} 
                         {% include 'general/projects.html' %}
+                        {% endfor %}
                     </div>
                 {% else %}
                     <p class="para">No projects</p>
                 {% endif %}
             </div>
-            
+            <!-- Software Projects -->
             <div id="Software" class="tabcontent">
-                <h3>Paris</h3>
-                <p>Paris is the capital of France.</p>
+                {% if software_projects %}
+                <div class="row grid" id="load-more">
+                    {% for project in software_projects %} 
+                    {% include 'general/projects.html' %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p class="para">No projects</p>
+                {% endif %}
             </div>
-            
+            <!-- Art Projects -->
             <div id="Art" class="tabcontent">
-                <h3>Tokyo</h3>
-                <p>Tokyo is the capital of Japan.</p>
+                {% if art_projects %}
+                <div class="row grid" id="load-more">
+                    {% for project in art_projects %} 
+                    {% include 'general/projects.html' %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p class="para">No projects</p>
+                {% endif %}
             </div>
-
-            <div id="Latest" class="tabcontent">
-                <h3>Tokyo</h3>
-                <p>Tokyo is the capital of Japan.</p>
-            </div>
+            <!-- Latest Projects -->
+            <!-- <div id="Latest" class="tabcontent">
+                {% if latest_projects %}
+                <div class="row grid" id="load-more">
+                    {% for project in latest_projects %} 
+                    {% include 'general/projects.html' %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p class="para">No latest projects</p>
+                {% endif %}
+            </div> -->
 
             <div id="Upcoming" class="tabcontent">
-                <h3>Tokyo</h3>
-                <p>Tokyo is the capital of Japan.</p>
+                {% if upcoming_projects %}
+                <div class="row grid" id="load-more">
+                    {% for project in upcoming_projects %} 
+                    {% include 'general/projects.html' %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p class="para">No upcoming projects</p>
+                {% endif %}
             </div>
         </div>
     </section>
