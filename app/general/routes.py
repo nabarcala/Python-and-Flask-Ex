@@ -16,7 +16,7 @@ general = Blueprint('general', __name__,
 @general.route('/home', methods=['GET', 'POST'])
 def home():
     """
-    Home page
+    Home page 
     """
     projects = Projects.query.limit(6).all()
     software_projects = Projects.query.filter_by(type='software').limit(6).all()
