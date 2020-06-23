@@ -4,7 +4,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 from datetime import datetime
 
-from app import app, db
+from app import db
 from app.admin.forms import EditProfileForm, ProjectForm
 from app.models import User, Projects
 # from app.admin.utils import check_admin
