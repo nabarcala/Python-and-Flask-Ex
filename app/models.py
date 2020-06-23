@@ -1,4 +1,4 @@
-from app import db, login, app
+from app import db, login
 from datetime import datetime
 from time import time
 import jwt

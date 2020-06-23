@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 class Config(object):
     SECRET_KEY=os.environ.get('SECRET_KEY') or 'you-will-never-guess'
@@ -8,6 +11,9 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'port.db')
     # Disable the signal for everytime something changes in the database
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # Heroku expects applications to log directly to stdout
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
     
     # Email server details
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
@@ -20,3 +26,5 @@ class Config(object):
     POSTS_PER_PAGE = 25
     
     LANGUAGES = ['en', 'es']
+
+    
