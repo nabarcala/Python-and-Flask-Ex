@@ -25,8 +25,7 @@
                     <div class="site-buttons">
                         <div class="d-flex flex-row flex-wrap">
                             <button type="button" class="btn button btn-outline-primary mb1 purple mr-4 text-uppercase">view resume</button>
-                            <button type="button" class="btn button btn-outline-secondary text-uppercase">about me</button>
-                            
+                            <a href="{{ url_for('general.home', _anchor='about-me') }}"><button type="button" class="btn button btn-outline-secondary text-uppercase" >about me</button></a>
                         </div>
                     </div>
                 </div>
@@ -38,7 +37,7 @@
     </section>
 
     <!-- About Me -->
-    <section class="about-me">
+    <section class="about-me" id="about-me">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
@@ -69,7 +68,7 @@
 
     <!-- Services Offered -->
 
-    <section class="services-offered">
+    <section class="services-offered" id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center services-title">
@@ -139,7 +138,7 @@
                                     I have created several face masks made from 100% cotton. They are available on my Etsy Store.
                                 </p>
                                 <p class="card-text text-secondary">
-                                    <button type="button" class="btn button btn-outline-primary text-uppercase"><a href="#"><i class="fab fa-etsy"></i></a></button>
+                                    <a href="#"><i class="fab fa-etsy"></i> Etsy </a>
                                 </p>
                             </div>
                         </div>
@@ -152,7 +151,7 @@
     <!-- <script type="text/javascript" src="../../../static/js/home.update.js"></script>  -->
 
     <!-- Projects Done -->
-    <section class="project-area">
+    <section class="project-area" id="portfolio">
         <div class="container">
             <div class="project-title pb-5">
                 <h1 class="text-uppercase title-h1">

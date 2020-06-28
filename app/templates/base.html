@@ -62,23 +62,22 @@
                         <a class="nav-link" href="{{ url_for('general.home') }}">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{{ url_for('general.home', _anchor='about-me') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="{{ url_for('general.home', _anchor='services') }}">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Portfolio</a>
+                        <a class="nav-link" href="{{ url_for('general.home', _anchor='portfolio') }}">Portfolio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pages</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">Blog</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
+
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('general.home', _anchor='contact') }}">Contact</a>
+                    </li> -->
 
 
                     <li class="nav-item">
