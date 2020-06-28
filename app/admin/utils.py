@@ -5,3 +5,4 @@ def check_admin():
     """
     if not current_user.is_admin:
         abort(403)
+

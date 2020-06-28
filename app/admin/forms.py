@@ -1,7 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, FileField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, FileField, SelectField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
 from app.models import User, Projects
+
+PROJECT_TYPE = [('SW', 'Software'), ('AR', 'Art'), ('UPC', 'Upcoming')]
 
 class EditProfileForm(FlaskForm):
     career = StringField('Career', validators=[Length(min=0, max=140)])
@@ -26,19 +28,21 @@ class EditProfileForm(FlaskForm):
 #     submit = SubmitField('Submit')
 
 class ProjectForm(FlaskForm):
-    title = StringField('Title', validators=[DataRequired(), Length(min=1, max=140)])
+    title = StringField('Title', validators=[DataRequired(), Length(min=1, max=20)])
 #    imgfile = FileField('Card Image')
     website = StringField('Website')
     github_url =StringField('GitHub Link')
-    description = StringField('Description', validators=[DataRequired(), Length(min=1, max=500)])
+    description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])
+    project_type = SelectField(label='Project Type', choices=PROJECT_TYPE)
     submit = SubmitField('Submit')
 
 class EditProjectForm(FlaskForm):
-    title = StringField('Title', validators=[DataRequired(), Length(min=1, max=140)])
+    title = StringField('Title', validators=[DataRequired(), Length(min=1, max=20)])
     imgfile = FileField('Card Image')
     website = StringField('Website')
     github_url =StringField('GitHub Link')
-    description = StringField('Description', validators=[DataRequired(), Length(min=1, max=500)])
+    description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])
+    project_type = SelectField(label='Project Type', choices=PROJECT_TYPE)
     submit = SubmitField('Submit')
 
     def validate_title(self, title):

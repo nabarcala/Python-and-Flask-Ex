@@ -60,7 +60,8 @@ def add_project():
 #            imgfile = form.imgfile.data,
             website = form.website.data,
             github_url = form.github_url.data,
-            description = form.description.data
+            description = form.description.data,
+            project_type = form.project_type.data
         )
         try:
             db.session.add(projects)
@@ -92,6 +93,7 @@ def edit_project(id):
         project.website = form.website.data
         project.github_url = form.github_url.data
         project.description = form.description.data
+        project.project_type = form.project_type.data
         db.session.commit()
         flash('Project has been successfully updated.')
         return redirect(url_for('admin.list_projects'))
@@ -100,6 +102,7 @@ def edit_project(id):
     form.website.data = project.website
     form.github_url.data = project.github_url
     form.description.data = project.description
+    form.project_type.data = project.project_type
     return render_template('admin/project.html', form=form, title='Edit Project', action='Edit', add_project=add_project, project=project)
 
 

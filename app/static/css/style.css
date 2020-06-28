@@ -148,6 +148,11 @@
     padding-bottom: 3rem;
 }
 
+.button-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
 /* Style the tab */
 .tab {
     overflow: hidden;
