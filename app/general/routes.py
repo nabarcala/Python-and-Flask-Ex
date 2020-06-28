@@ -6,7 +6,7 @@ from datetime import datetime
 
 from app import db
 from app.models import User, Projects
-import utils
+# import utils
 
 general = Blueprint('general', __name__,
                    template_folder='templates')

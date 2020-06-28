@@ -46,7 +46,7 @@ def list_projects():
 
 @admin.route('/admin/portfolio/add', methods=['GET', 'POST'])
 @login_required
-def add_project(id):
+def add_project():
     """
     Create a new project to add to the portfolio.
     """
