@@ -8,12 +8,22 @@
             <h1 class="display-4">Admin Dashboard</h1>
         </div>
         <hr>
-        <div class="col-12 button-padding">
-            <!-- <p class="lead">
-            For administrators only!
-            </p> -->
-            <p class="lead"><a href="{{ url_for('admin.list_projects') }}">View Projects</a></p>
+
+        <div class="container button-padding">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <a class="text-center" href="{{ url_for('admin.list_projects') }}">
+                    <button type="button" class="btn button btn-outline-secondary text-uppercase btn-lg">View Projects</button>
+                    </a>
+                </div>
+                <div class="col-6 text-center">
+                    <a class="text-center" href="{{ url_for('admin.list_data') }}">
+                    <button type="button" class="btn button btn-outline-secondary text-uppercase btn-lg">Change Info</button>
+                    </a>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
 

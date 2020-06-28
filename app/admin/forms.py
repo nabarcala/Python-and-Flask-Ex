@@ -50,3 +50,10 @@ class EditProjectForm(FlaskForm):
             project = Projects.query.filter_by(title=self.title.data).first()
             if project is not None:
                 raise ValidationError('Please use a different title.')
+
+class EditDataForm(FlaskForm):
+    career = StringField('Career', validators=[DataRequired()])
+    headline = TextAreaField('Headline', validators=[Length(min=0, max=140)])
+    about_me = TextAreaField('About Me', validators=[Length(min=0, max=140)])
+    submit = SubmitField('Submit')
+        

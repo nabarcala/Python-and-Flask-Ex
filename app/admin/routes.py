@@ -5,7 +5,7 @@ from werkzeug.urls import url_parse
 from datetime import datetime
 
 from app import db
-from app.admin.forms import EditProfileForm, ProjectForm
+from app.admin.forms import EditProfileForm, ProjectForm, EditDataForm
 from app.models import User, Projects
 # from app.admin.utils import check_admin
 
@@ -103,7 +103,7 @@ def edit_project(id):
     form.github_url.data = project.github_url
     form.description.data = project.description
     form.project_type.data = project.project_type
-    return render_template('admin/project.html', form=form, title='Edit Project', action='Edit', add_project=add_project, project=project)
+    return render_template('admin/edit_form.html', form=form, title='Edit Project', action='Edit', add_project=add_project, project=project)
 
 
 @admin.route('/admin/portfolio/delete/<int:id>', methods=['GET', 'POST'])
@@ -123,6 +123,40 @@ def delete_project(id):
 
     return render_template(title='Delete Project')
 
+@admin.route('/admin/data', methods=['GET', 'POST'])
+@login_required
+def list_data():
+    """
+    List all the information for the admin to see
+    """
+    check_admin()
+    user = User.query.filter_by(is_admin='1').first()
+    return render_template('admin/information.html', admin=user, title="Admin Data")
+
+@admin.route('/admin/data/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_data(id):
+    """
+    Edit personal data stored in the database
+    """
+    check_admin()
+    edit_data = True
+
+    user = User.query.filter_by(id='1').first()
+
+    form = EditDataForm()
+    if form.validate_on_submit():
+        user.career = form.career.data
+        user.headline = form.headline.data
+        user.about_me = form.about_me.data
+        db.session.commit()
+        flash('Data has been successfully updated.')
+        return redirect(url_for('admin.list_data'))
+
+    form.career.data = user.career
+    form.headline.data = user.headline
+    form.about_me.data = user.about_me
+    return render_template('admin/edit_form.html', form=form, title='Edit Data', action='Edit', edit_data=edit_data, admin=user)
 
 
 #

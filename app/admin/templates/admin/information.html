@@ -1,0 +1,64 @@
+
+{% extends "base.html" %}
+
+{% block title %}Change Data{% endblock %}
+
+{% block app_content %}
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Personal Info</h1>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<!--- Projects -->
+<div class="container-fluid padding table-padding">
+
+    {% if current_user.is_authenticated and current_user.is_admin %}
+
+      <div class="center">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th width="15%"> Career </th>
+              <th width="30%"> Headline </th>
+              <th width="30%"> About Me </th>
+              <th width="10%"> Edit </th>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td> {{ current_user.career }} </td>
+                <td> {{ current_user.headline }} </td>
+                <td> {{ current_user.about_me }} </td>
+                
+                <td> <a href="{{ url_for('admin.edit_data', id=current_user.is_admin) }}"><i class="fa fa-pencil">  Edit </a></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div style="text-align: center">
+    {% else %}
+        <div style="text-align: center">
+          <h3> Data only accessible by admin. </h3>
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Add Projects Button -->
+    <!-- <div class="container button-padding">
+      <div class="row">
+        <div class="col text-center">
+          <a class="text-center" href="">
+          <button type="button" class="btn button btn-outline-secondary text-uppercase btn-lg"> <i class="fa fa-plus"></i> Add Project </button>
+        </a>
+        </div>
+      </div>
+    </div> -->
+
+</div>
+
+{% endblock %}
