@@ -30,31 +30,10 @@ def home():
         latest_projects=latest_projects, upcoming_projects=upcoming_projects, 
         title='Welcome', admin=admin)
 
-@general.route('/update', methods=['POST'])
-def update():
+@general.route('/project/<int:id>', methods=['GET', 'POST'])
+def project(id):
     """
-    Update the page based on the type of project selected.
+    Display a specific project's information 
     """
-    projects = Projects.query.filter_by(id=request.form['id'])
-    return jsonify({'results' : 'success'})
-
-# @general.route('/portfolio')
-# def portfolio():
-#     projects = Projects.query.all()
-#     heading = "Portfolio"
-#     paths = {
-#         "detail": "portfolio",
-#         "edit": "edit",
-#         "delete": "delete",
-#         "moveup": "moveup"
-#     }
-#     return render_template('general/portfolio.html', title='Portfolio', projects=projects, paths=paths, heading=heading)
-
-# @general.route('/portfolio/<title>')
-# def project(title):
-#     project = Projects.query.filter_by(title=title).first()
-#     if not project:
-#         abort(404)
-#     go_back = url_for('general.portfolio')
-#     return render_template('general/project.html', title='project.tltle', project=project, go_back=go_back)
-
+    project = Projects.query.get(id)
+    return render_template('general/project_info.html', project=project)

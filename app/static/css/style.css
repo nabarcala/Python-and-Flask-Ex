@@ -22,7 +22,7 @@
 }
 
 .header_area .navbar {
-    padding: 1rem 20rem;
+    padding: .5rem 20rem;
 }
 
 .navbar-nav {
@@ -30,7 +30,7 @@
  
     text-transform: uppercase;
 
-    padding: 1.7rem;
+    padding: 1rem;
     color: var(--title-color);
 }
 
@@ -57,7 +57,7 @@
 }
 
 .site-main .site-banner .site-title h3 {
-    padding-top: 35%;
+    padding-top: 25%;
     font-weight: 500;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .site-main .site-banner .banner-image > img {
-    padding: 7rem 0;
+    padding: 3rem 0;
     width: 90rem;
 }
 
@@ -88,7 +88,10 @@
 
 .about-me {
     padding: 8rem 5rem;
+}
 
+.project-info {
+    padding: 4rem 3rem;
 }
 
 .about-title h2 > span {
@@ -151,6 +154,17 @@
 .button-padding {
     padding-top: 3rem;
     padding-bottom: 3rem;
+}
+
+.no-link a:link {
+    color: var(--gradient-color);
+}
+
+.no-link a:hover {
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Style the tab */
