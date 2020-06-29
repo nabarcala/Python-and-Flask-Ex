@@ -25,6 +25,7 @@
         <table class="table table-striped table-bordered">
           <thead>
             <tr>
+              <th width="15%"> Image </th>
               <th width="15%"> Name </th>
               <th width="40%"> Description </th>
               <th width="15%"> Website </th>
@@ -36,6 +37,7 @@
           <tbody>
             {% for project in projects %}
               <tr>
+                <td> <img src="{{ project.imgurl }}" alt="project-img" class="img-fluid"> </td>
                 <td> {{ project.title|replace("-", " ") }} </td>
                 <td> {{ project.description }} </td>
                 {% if project.website %}

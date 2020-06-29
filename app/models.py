@@ -94,7 +94,8 @@ class Projects(db.Model):
     title = db.Column(db.String(30),
                       unique=True,
                       info={"validators": Regexp("^[A-Za-z0-9_-]*$")})
-#    imgfile = db.Column(db.String(30), nullable=False)
+    imgfile = db.Column(db.String(100))
+    imgurl = db.Column(db.String(100))
     website = db.Column(db.String(30))
     github_url = db.Column(db.String(30))
     description = db.Column(db.String(400))
@@ -102,4 +103,5 @@ class Projects(db.Model):
 
     def __repr__(self):
         return '<Project title: {}>'.format(self.title)
-    
+
+              

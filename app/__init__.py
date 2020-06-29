@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_moment import Moment
+from flask_uploads import configure_uploads, IMAGES, UploadSet
 from config import Config
 import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
@@ -24,10 +25,15 @@ mail = Mail()
 bootstrap = Bootstrap()
 moment = Moment()
 
+# Image uploading via Flask-Upload
+uploads = UploadSet('uploads', IMAGES)
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+    # app.config['UPLOADED_IMAGES_DEST'] = 'static/img/uploads'
+
+    configure_uploads(app, uploads)
 
     db.init_app(app)
     migrate.init_app(app, db)
