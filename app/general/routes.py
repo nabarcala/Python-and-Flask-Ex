@@ -4,9 +4,9 @@ from flask import render_template, flash, redirect, url_for, request, jsonify
 from werkzeug.urls import url_parse
 from datetime import datetime
 
-from app import app, db
+from app import db
 from app.models import User, Projects
-import utils
+# import utils
 
 general = Blueprint('general', __name__,
                    template_folder='templates')
@@ -16,13 +16,13 @@ general = Blueprint('general', __name__,
 @general.route('/home', methods=['GET', 'POST'])
 def home():
     """
-    Home page
+    Home page 
     """
     projects = Projects.query.limit(6).all()
-    software_projects = Projects.query.filter_by(type='software').limit(6).all()
-    art_projects = Projects.query.filter_by(type='art').limit(6).all()
-    latest_projects = Projects.query.filter_by(type='latest').limit(6).all()
-    upcoming_projects = Projects.query.filter_by(type='upcoming').limit(6).all()
+    software_projects = Projects.query.filter_by(project_type='SW').limit(6).all()
+    art_projects = Projects.query.filter_by(project_type='AR').limit(6).all()
+    latest_projects = Projects.query.filter_by(project_type='LT').limit(6).all()
+    upcoming_projects = Projects.query.filter_by(project_type='UPC').limit(6).all()
 
     admin = User.query.get(1)
     return render_template('general/home.html', projects=projects, 
@@ -30,31 +30,10 @@ def home():
         latest_projects=latest_projects, upcoming_projects=upcoming_projects, 
         title='Welcome', admin=admin)
 
-@general.route('/update', methods=['POST'])
-def update():
+@general.route('/project/<int:id>', methods=['GET', 'POST'])
+def project(id):
     """
-    Update the page based on the type of project selected.
+    Display a specific project's information 
     """
-    projects = Projects.query.filter_by(id=request.form['id'])
-    return jsonify({'results' : 'success'})
-
-# @general.route('/portfolio')
-# def portfolio():
-#     projects = Projects.query.all()
-#     heading = "Portfolio"
-#     paths = {
-#         "detail": "portfolio",
-#         "edit": "edit",
-#         "delete": "delete",
-#         "moveup": "moveup"
-#     }
-#     return render_template('general/portfolio.html', title='Portfolio', projects=projects, paths=paths, heading=heading)
-
-# @general.route('/portfolio/<title>')
-# def project(title):
-#     project = Projects.query.filter_by(title=title).first()
-#     if not project:
-#         abort(404)
-#     go_back = url_for('general.portfolio')
-#     return render_template('general/project.html', title='project.tltle', project=project, go_back=go_back)
-
+    project = Projects.query.get(id)
+    return render_template('general/project_info.html', project=project)

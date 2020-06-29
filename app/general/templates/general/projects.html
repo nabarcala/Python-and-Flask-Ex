@@ -9,7 +9,7 @@
             <img src="../../../static/img/team3.png" alt="portfolio" class="portfolio-img">
         </div>
         <div class="title py-4">
-            <h4 class="text-uppercase">{{ project.title|replace("-", " ") }}</h4>
+            <h4 class="text-uppercase no-link"><a href="{{ url_for('general.project', id=project.id) }}">{{ project.title|replace("-", " ") }}</a></h4>
             <span class="text-secondary">Latest portfolio</span>
         </div>
     </div>

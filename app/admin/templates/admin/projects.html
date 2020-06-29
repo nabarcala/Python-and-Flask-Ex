@@ -17,6 +17,7 @@
         </div> -->
     </div>
 </div>
+
 <!--- Projects -->
 <div class="container-fluid padding table-padding">
     {% if projects %}
@@ -28,6 +29,7 @@
               <th width="40%"> Description </th>
               <th width="15%"> Website </th>
               <th width="15%"> Github </th>
+              <th width="15%"> Project Type </th>
               <th width="15%"> Edit </th>
               <th width="15%"> Delete </th>
           </thead>
@@ -46,6 +48,7 @@
                 {% else %}
                   <td>  </td>
                 {% endif %}
+                <td> {{ project.project_type }} </td>
                 <td> <a href="{{ url_for('admin.edit_project', id=project.id) }}"><i class="fa fa-pencil">  Edit </a></td>
                 <td> <a href="{{ url_for('admin.delete_project', id=project.id) }}"><i class="fa fa-trash"> Delete </a></td>
               </tr>
@@ -61,9 +64,16 @@
       </div>
     {% endif %}
 
-    <a href="{{ url_for('admin.add_project') }}">
-      <button type="button" class="btn btn-outline-secondary btn-lg"> <i class="fa fa-plus"></i> Add Project </button>
-    </a>
+    <!-- Add Projects Button -->
+    <div class="container button-padding">
+      <div class="row">
+        <div class="col text-center">
+          <a class="text-center" href="{{ url_for('admin.add_project') }}">
+          <button type="button" class="btn button btn-outline-secondary text-uppercase btn-lg"> <i class="fa fa-plus"></i> Add Project </button>
+        </a>
+        </div>
+      </div>
+    </div>
 
 </div>
 {% endblock %}

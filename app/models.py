@@ -1,4 +1,4 @@
-from app import db, login, app
+from app import db, login
 from datetime import datetime
 from time import time
 import jwt
@@ -98,7 +98,7 @@ class Projects(db.Model):
     website = db.Column(db.String(30))
     github_url = db.Column(db.String(30))
     description = db.Column(db.String(400))
-    type = db.Column(db.Integer)
+    project_type = db.Column(db.String(3))
 
     def __repr__(self):
         return '<Project title: {}>'.format(self.title)

@@ -16,8 +16,14 @@
       <br/>
       {% if add_project %}
           <h1>Add Project</h1>
-      {% else %}
+      {% endif %}
+      {% if add_project == false %}
           <h1>Edit Project</h1>
+      {% endif %}
+
+      {% if edit_data %}
+          <h1>Edit Data</h1>
+      
       {% endif %}
     </div>
     <br/>
