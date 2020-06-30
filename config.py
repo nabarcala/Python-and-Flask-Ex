@@ -27,4 +27,7 @@ class Config(object):
     
     LANGUAGES = ['en', 'es']
 
+    UPLOADS_DEFAULT_DEST = os.environ.get('UPLOADS_DEFAULT_DEST') or os.path.join(basedir, 'app/static/img')
+    # images = UploadSet('images', IMAGES)
+    # configure_uploads(images)
     

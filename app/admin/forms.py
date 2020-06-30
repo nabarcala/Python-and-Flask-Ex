@@ -1,6 +1,10 @@
+import os
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, FileField, SelectField
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
+
+from app import uploads
 from app.models import User, Projects
 
 PROJECT_TYPE = [('SW', 'Software'), ('AR', 'Art'), ('UPC', 'Upcoming')]
@@ -22,14 +26,9 @@ class EditProfileForm(FlaskForm):
             if user is not None:
                 raise ValidationError('Please use a different username.')
 
-# Form to create posts
-# class PostForm(FlaskForm):
-#     post = TextAreaField('Say something', validators=[DataRequired(), Length(min=1, max=140)])
-#     submit = SubmitField('Submit')
-
 class ProjectForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=1, max=20)])
-#    imgfile = FileField('Card Image')
+    imgfile = FileField('Project Image', validators=[FileRequired(), FileAllowed(uploads, 'Images only!')])
     website = StringField('Website')
     github_url =StringField('GitHub Link')
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])
@@ -38,7 +37,7 @@ class ProjectForm(FlaskForm):
 
 class EditProjectForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=1, max=20)])
-    imgfile = FileField('Card Image')
+    imgfile = FileField('Project Image', validators=[FileRequired(), FileAllowed(uploads, 'Images only!')])
     website = StringField('Website')
     github_url =StringField('GitHub Link')
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])

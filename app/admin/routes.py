@@ -1,10 +1,11 @@
 from flask import Blueprint
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
+from flask_uploads import configure_uploads, IMAGES, UploadSet
 from werkzeug.urls import url_parse
 from datetime import datetime
 
-from app import db
+from app import db, uploads
 from app.admin.forms import EditProfileForm, ProjectForm, EditDataForm
 from app.models import User, Projects
 # from app.admin.utils import check_admin
@@ -55,9 +56,13 @@ def add_project():
 
     form = ProjectForm()
     if form.validate_on_submit():
+        filename = uploads.save(form.imgfile.data)
+        # return filename
+
         projects = Projects(
             title = form.title.data,
-#            imgfile = form.imgfile.data,
+            imgfile = filename,
+            imgurl = uploads.url(filename),
             website = form.website.data,
             github_url = form.github_url.data,
             description = form.description.data,
@@ -73,7 +78,7 @@ def add_project():
 
         return redirect(url_for('admin.list_projects'))
 
-    return render_template('admin/project.html', form=form, title='Create a Project', action='Add', add_project=add_project)
+    return render_template('admin/edit_form.html', form=form, title='Create a Project', action='Add', add_project=add_project)
 
 
 @admin.route('/admin/portfolio/edit/<int:id>', methods=['GET', 'POST'])
@@ -89,7 +94,11 @@ def edit_project(id):
     form = ProjectForm()
     if form.validate_on_submit():
         project.title = form.title.data
-        # imgfile = form.imgfile.data
+        
+        filename = uploads.save(form.imgfile.data)
+        project.imgfile = filename
+        project.imgurl = uploads.url(filename)
+
         project.website = form.website.data
         project.github_url = form.github_url.data
         project.description = form.description.data
@@ -99,6 +108,8 @@ def edit_project(id):
         return redirect(url_for('admin.list_projects'))
 
     form.title.data = project.title
+    form.imgfile.data = project.imgfile
+    # form.imgurl.data = project.imgurl
     form.website.data = project.website
     form.github_url.data = project.github_url
     form.description.data = project.description
