@@ -24,11 +24,16 @@
                 </p>
             </div>
             <div class="row pl-3">
-                <div class="col-4 pl-4">
+                <!-- <div class="col-4 pl-4">
 
                     {% if project.github_url %}
                     <a href="{{ project.github_url }}">
-                    <!-- <button type="button" class="btn button btn-outline-primary text-uppercase">GitHub</button> -->
+                    <button type="button" class="btn button btn-outline-primary text-uppercase">GitHub</button>
+                    </a>
+
+                    {% else %}
+                    <a href="{{ project.github_url }}">
+                    <button type="button" class="disabled btn button btn-outline-primary text-uppercase">GitHub</button>
                     </a>
 
                 </div>
@@ -37,11 +42,16 @@
 
                     {% if project.website %}
                     <a href="{{ project.website }}">
-                    <!-- <button type="button" class="btn button btn-outline-primary text-uppercase">Website</button> -->
+                    <button type="button" class="btn button btn-outline-primary text-uppercase">Website</button>
+                    </a>
+
+                    {% else %}
+                    <a href="{{ project.website }}">
+                    <button type="button" class="disabled btn button btn-outline-primary text-uppercase">Website</button>
                     </a>
 
                     {% endif %}
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
