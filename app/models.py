@@ -96,9 +96,9 @@ class Projects(db.Model):
                       info={"validators": Regexp("^[A-Za-z0-9_-]*$")})
     imgfile = db.Column(db.String(100))
     imgurl = db.Column(db.String(100))
-    website = db.Column(db.String(30))
-    github_url = db.Column(db.String(30))
-    description = db.Column(db.String(1000))
+    website = db.Column(db.String(100))
+    github_url = db.Column(db.String(100))
+    description = db.Column(db.String(5000))
     project_type = db.Column(db.String(3))
 
     def __repr__(self):
