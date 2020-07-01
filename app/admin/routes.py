@@ -6,7 +6,7 @@ from werkzeug.urls import url_parse
 from datetime import datetime
 
 from app import db, uploads
-from app.admin.forms import EditProfileForm, ProjectForm, EditDataForm
+from app.admin.forms import EditProjectForm, ProjectForm, EditDataForm
 from app.models import User, Projects
 # from app.admin.utils import check_admin
 
@@ -91,13 +91,14 @@ def edit_project(id):
     add_project = False
 
     project = Projects.query.get_or_404(id)
-    form = ProjectForm()
+    form = EditProjectForm()
     if form.validate_on_submit():
         project.title = form.title.data
         
-        filename = uploads.save(form.imgfile.data)
-        project.imgfile = filename
-        project.imgurl = uploads.url(filename)
+        if form.imgfile.data:
+            filename = uploads.save(form.imgfile.data)
+            project.imgfile = filename
+            project.imgurl = uploads.url(filename)
 
         project.website = form.website.data
         project.github_url = form.github_url.data

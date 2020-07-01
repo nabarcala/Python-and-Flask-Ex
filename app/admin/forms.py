@@ -37,18 +37,14 @@ class ProjectForm(FlaskForm):
 
 class EditProjectForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=1, max=20)])
-    imgfile = FileField('Project Image', validators=[FileRequired(), FileAllowed(uploads, 'Images only!')])
+    imgfile = FileField('Project Image', validators=[FileAllowed(uploads, 'Images only!')]) 
     website = StringField('Website')
     github_url =StringField('GitHub Link')
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])
     project_type = SelectField(label='Project Type', choices=PROJECT_TYPE)
     submit = SubmitField('Submit')
 
-    def validate_title(self, title):
-        if title.data != self.original_title:
-            project = Projects.query.filter_by(title=self.title.data).first()
-            if project is not None:
-                raise ValidationError('Please use a different title.')
+    
 
 class EditDataForm(FlaskForm):
     career = StringField('Career', validators=[DataRequired()])
