@@ -21,9 +21,9 @@
     padding: 1rem ;
 }
 
-.header_area .navbar {
+/*.header_area .navbar {
     padding: .5rem 20rem;
-}
+}*/
 
 .navbar-nav {
     font: normal 500 15px/2px var(--roboto);

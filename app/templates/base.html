@@ -34,7 +34,6 @@
             <a class="navbar-brand" href="#">
                 NB Portfolio
                 <!-- <img src='../static/img/icon.png'> -->
-                <!-- <i class="fa fa-minus-square-o" style="font-size: 0.73em;"></i> -->
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,20 +42,6 @@
                 <div class="mr-auto"></div>
                 <ul class="navbar-nav">
 
-                    {% if current_user.is_authenticated and current_user.is_admin %}
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('general.home') }}">Home</a>
-                    </li>
-
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('admin.admin_dashboard') }}">Dashboard<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
-                    </li>
-
-                    {% else %}
 
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url_for('general.home') }}">Home<span class="sr-only">(current)</span></a>
@@ -73,6 +58,21 @@
 
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">Blog</a>
+                    </li>
+
+                    {% if current_user.is_authenticated and current_user.is_admin %}
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('admin.admin_dashboard') }}">Dashboard<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                    </li>
+
+                    {% elif current_user.is_authenticated and current_user.is_admin == 0 %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
                     </li>
 
                     {% endif %}
