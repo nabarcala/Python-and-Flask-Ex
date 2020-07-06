@@ -8,7 +8,9 @@
 /*-------- Colors --------*/
 :root {
     --background-color: #222831;
-    --highlight-color: #b84471; 
+    --background-dark: #1c2027;
+    /* --highlight-color: #2a607a; */
+    --highlight-color: #dc789d; 
     --text-white: #fff;
 
     --first-color: #f4cacb;

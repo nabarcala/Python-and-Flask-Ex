@@ -4,6 +4,9 @@
 /*-------- CSS Variables --------*/
 @import url(./partials/_variables.css);
 
+/*-------- Global Variables --------*/
+@import url(./partials/_global.css);
+
 
 /*-------- Layout --------*/
 * {
@@ -13,7 +16,7 @@
     text-decoration: none;
     box-sizing: border-box;
     font-family: var(--roboto);
-    background-color: var(--background-color);
+    background-color: transparent;
 }
 body {
     font-family: var(--roboto);
@@ -22,8 +25,14 @@ body {
     background-color: var(--background-color);
 }
 .container {
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
+}
+.border-pink {
+    border: 2px solid black;
+    border-radius: 12px;
+    border-color: var(--highlight-color);
+    color: var(--highlight-color);
 }
 
 /*-------- Navbar Header --------*/
@@ -32,6 +41,7 @@ body {
     justify-content: space-between;
     /* align-items: center; */
     padding: 1rem 0;
+    margin: 0 6rem;
 }
 .header_area ul {
     /* display: flex; */
@@ -45,11 +55,11 @@ body {
 }
 .navbar-brand {
     font-size: 1.4rem;
-    background: var(--highlight-color);
+    background-color: transparent;
+    /* background: var(--highlight-color); */
     color: var(--text-white);
     padding: .5rem 1rem;
     text-align: center;
-    border-radius: 9px;
 }
 .navbar-toggler i.menu {
     font-size: 1.4rem;
@@ -69,7 +79,7 @@ body {
     height: 100%;
 }
 .content {
-    height: 80vh; 
+    height: 100vh; 
 }
 .span-6 {
     flex-basis: 50%;
@@ -80,6 +90,7 @@ body {
 .inner-desc {
     margin: auto;
     padding: 0 7rem;
+    padding-bottom: 20%;
 }
 .about-desc h1{
     font-size: 3.5rem;
@@ -89,12 +100,115 @@ body {
     /* font-size: 3.5rem; */
     margin-bottom: .5rem;
 }
-.about-desc p{
+/* .about-desc p{
     font-size: 1rem;
     line-height: 1.7rem;
-}
+} */
 .span-6 img {
     height: auto;
     padding-top: 10%;
     width: 100%;
 }
+
+/*-------- About Me --------*/
+.about-me {
+    background: var(--background-dark);
+    color: var(--text-white);
+    padding: 3rem 0;
+}
+.flex {
+    display: flex;
+}
+.about-me-left {
+    padding-right: 3rem;
+}
+.about-me h5 {
+    color: var(--highlight-color);
+    margin-bottom: 1.3rem;
+    /* font-size: 1.2rem; */
+}
+.about-me-left h2 {
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+    margin-bottom: 1rem;
+}
+/* .about-me-left p {
+    line-height: 1.7rem;
+    font-size: 1rem;
+} */
+.about-me-right {
+    padding-left: 1rem;
+}
+.about-me-right h1 {
+    font-size: 2.5rem; 
+    margin-bottom: .7rem;
+}
+.about-me-right h2 {
+    font-size: 1.3rem;
+    color: var(--highlight-color);
+}
+
+/*-------- Services --------*/
+.services {
+    padding: 3rem 0;
+}
+.services-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.3rem;
+}
+.single-service {
+    /* background: var(--background-dark); */
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+.single-service .services-inner,
+.single-service:hover .services-inner{
+    background: var(--background-dark);
+}
+.single-service.single-service .bg,
+.single-service:hover .bg {
+    position: absolute;
+    background-image: linear-gradient(30deg, #7b2fbe, #e75e90);
+    right: 6%;
+    bottom: 5%;
+    height: 80%;
+    width: 75%;
+    z-index: -0;
+}
+/* .single-service.active .services-inner,
+.single-service:hover .services-inner{
+    background: var(--background-dark);
+}
+.single-service.single-service.active .bg,
+.single-service:hover .bg {
+    position: absolute;
+    background-image: linear-gradient(30deg, #7b2fbe, #e75e90);
+    right: 6%;
+    bottom: 5%;
+    height: 80%;
+    width: 75%;
+    z-index: -0;
+} */
+.single-service span {
+    font-size: 3rem;
+    color: var(--highlight-color);
+}
+.single-service h3 {
+    font-size: 1.7rem;
+    margin: 1rem 0;
+}
+.single-service p {
+    margin-bottom: 1.2rem;
+}
+.single-service a {
+    color: var(--highlight-color);
+    font-size: 1rem;
+}
+.services-inner {
+    padding: 3rem 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
