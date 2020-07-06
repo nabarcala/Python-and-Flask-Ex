@@ -11,31 +11,29 @@
 {% block app_content %}
 
 <!--- Welcome -->
+
 <main class="site-main">
     
     {% include 'general/banner.html' %}
 
 
+
     <!-- Projects Done -->
-    <section class="project-area" id="portfolio">
+    <!-- <section class="project-area" id="portfolio">
         <div class="container">
             <div class="project-title pb-3">
                 <h1 class="text-uppercase text-center title-h1">
                     Project Portfolio
                 </h1>
-                <!-- <h1 class="text-uppercase title-h1">Quality Work</h1> -->
             </div>
 
-            <!-- Tab Links -->
             <div class="tab centered">
                 <button id="defaultOpen" class="btn btn-light tablinks" onclick="displayProjects(event, 'All')">All</button>
                 <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Software')">Software</button>
                 <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Art')">Art</button>
-                <!-- <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Latest')">Latest</button> -->
-                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Upcoming')">Upcoming</button>
+               <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Upcoming')">Upcoming</button>
               </div>
               
-              <!-- Tab content -->
             <div id="All" class="tabcontent centered">
                 {% if projects %}
                 
@@ -48,7 +46,6 @@
                     <p class="para">No projects</p>
                 {% endif %}
             </div>
-            <!-- Software Projects -->
             <div id="Software" class="tabcontent">
                 {% if software_projects %}
                 <div class="row grid" id="load-more">
@@ -60,7 +57,6 @@
                     <p class="para">No projects</p>
                 {% endif %}
             </div>
-            <!-- Art Projects -->
             <div id="Art" class="tabcontent">
                 {% if art_projects %}
                 <div class="row grid" id="load-more">
@@ -72,18 +68,6 @@
                     <p class="para">No projects</p>
                 {% endif %}
             </div>
-            <!-- Latest Projects -->
-            <!-- <div id="Latest" class="tabcontent">
-                {% if latest_projects %}
-                <div class="row grid" id="load-more">
-                    {% for project in latest_projects %} 
-                    {% include 'general/projects.html' %}
-                    {% endfor %}
-                </div>
-                {% else %}
-                    <p class="para">No latest projects</p>
-                {% endif %}
-            </div> -->
 
             <div id="Upcoming" class="tabcontent">
                 {% if upcoming_projects %}
@@ -97,10 +81,9 @@
                 {% endif %}
             </div>
         </div>
-    </section>
+    </section> -->
 
-    {% include 'general/services_offered.html' %}
+
 
 </main>
-
 {% endblock %}

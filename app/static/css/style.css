@@ -1,270 +1,100 @@
 
 /*@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');*/
 
-/* CSS Variables */
+/*-------- CSS Variables --------*/
 @import url(./partials/_variables.css);
 
-/* Global Styling */
-@import url(./partials/_global.css);
 
+/*-------- Layout --------*/
 * {
     margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
     box-sizing: border-box;
-    /* width: 100%;
-    height: 100%; */
-
+    font-family: var(--roboto);
+    background-color: var(--background-color);
+}
+body {
+    font-family: var(--roboto);
+    font-size: var(--normal-font-size);
+    color: var(--text-color2);
+    background-color: var(--background-color);
+}
+.container {
+    width: 70%;
+    margin: 0 auto;
 }
 
-/* Navigation */
-
-.header_area .navbar-brand {
-    padding: 1rem ;
+/*-------- Navbar Header --------*/
+.header_area {
+    /* display: flex; */
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 1rem 0;
 }
-
-/*.header_area .navbar {
-    padding: .5rem 20rem;
-}*/
-
-.navbar-nav {
-    font: normal 500 15px/2px var(--roboto);
- 
-    text-transform: uppercase;
-
-    padding: 1rem;
-    color: var(--title-color);
+.header_area ul {
+    /* display: flex; */
 }
-
-.navbar-nav .active a {
-    background: var(--gradient-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.header_area li {
+    margin: 0 1rem;
 }
-
-.navbar-nav a:hover {
-    background: var(--gradient-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.nav-link {
+    color: var(--text-white);
+    font-size: 1.2rem;
 }
-
-/* Banner */
-
-.site-main .site-banner {
-    /* background-image: url(../img/bg.jpg); */
-    
-    padding-top: 3%;
-    padding-bottom: 3%;
-}
-
-.site-main .site-banner .site-title h3 {
-    /*padding-top: 25%;*/
-    font-weight: 400;
-}
-
-.site-main .site-banner .site-title h3::after {
-    content: "";
-    height: 2px;
-    width: 18vw;
-    background: black;
-    /*display: inline-block;*/
-    margin-left: 5%;
-    transform: translateY(-10px);
-}
-
-/*.title-h1 {
-    font-size: 1.5rem;
-    font-weight: 400;
-}*/
-
-.site-main .site-banner .site-title h1 {
-    font-size: 4rem;
-}
-
-.site-main .site-banner .site-title h4 {
-    font-size: 1.5rem;
-}
-
-.site-main .site-banner .banner-image > img {
-    padding: 3rem 0;
-    width: 90rem;
-}
-
-/*.site-main .site-buttons {
-    padding-top: 5%;
-}*/
-
-/* About me */
-
-.about-me {
-    padding: 8rem 5rem;
-}
-
-.project-info {
-    padding: 4rem 3rem;
-}
-
-.about-title h2 > span {
-    display: block;
-    font: normal bold 49px/60px var(--roboto);
-    letter-spacing: 21px;
-}
-
-.about-title .paragraph > p {
-    padding: .4rem 0;
-}
-
-/* Services Styles */
-
-.services-offered {
-    padding: 4rem;
-}
-
-.services-title {
-    padding: 0 10rem;
-}
-
-.services-title h1 {
-    font-size: 35px;
-}
-
-.services {
-    background: rgba(242, 244, 245, 0.973);
-    padding: 2rem 0;
-    width: 16rem;
-    margin: 1rem;
-    transition: box-shadow .7s ease;
-}
-
-.services:hover {
-    box-shadow: var(--box-shadow);
-}
-
-.fa-python, .fa-code, .fa-palette, .fa-head-side-mask {
-    font-size: 3em;
-    margin: 1rem;
-    /* color: var(--primary-color); */
-}
-
-/* Project Portfolio */
-
-.project-area {
-    padding: 4rem 0;
-    background-color: var(--bg-color);
-    background-position: 0% 50%;
-}
-
-.button-group button {
-    font: 700 normal var(--roboto);
-    text-transform: uppercase;
-}
-
-.button-group {
-    padding-bottom: 3rem;
-}
-
-.button-padding {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-.no-link a:link {
-    color: var(--gradient-color);
-}
-
-.no-link a:hover {
-    background: var(--gradient-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    /* border: 1px solid #ccc; */
-    /* background-color: #f1f1f1; */
-  }
-  
-  /* Style the buttons inside the tab */
-.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-.centered {
+.navbar-brand {
+    font-size: 1.4rem;
+    background: var(--highlight-color);
+    color: var(--text-white);
+    padding: .5rem 1rem;
     text-align: center;
-    width: 100%;
+    border-radius: 9px;
+}
+.navbar-toggler i.menu {
+    font-size: 1.4rem;
+    background: var(--highlight-color);
+    color: var(--text-white);
+    padding: .6rem .8rem;
+    text-align: center;
+    border-radius: 9px;
+}
+.show {
+    right: 0;
 }
 
-.centered_tab {
-    float:none /*to make sure there is no active float*/
-    display: inline-block
+/*-------- Banner --------*/
+.flexbox {
+    display: flex; 
+    height: 100%;
 }
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ddd;
+.content {
+    height: 80vh; 
 }
-
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: #ccc;
+.span-6 {
+    flex-basis: 50%;
 }
-
-/* Style the tab content */
-.tabcontent {
-    /* padding: 5rem 0; */
-    display: none;
-    padding: 6px 12px;
-    /* border: 1px solid #ccc; */
-    border-top: none;
+.about-desc {
+    display: flex;
 }
-
-.tabcontent {
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+.inner-desc {
+    margin: auto;
+    padding: 0 7rem;
 }
-
-/* Go from zero to full opacity */
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.about-desc h1{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
 }
-
-.our-project > .title h4 {
-    font: normal 700 25px/12px var(--roboto);
+.about-desc h3{
+    /* font-size: 3.5rem; */
+    margin-bottom: .5rem;
 }
-
-.portfolio-img {
-    display: block;
-    max-width: 100%;
+.about-desc p{
+    font-size: 1rem;
+    line-height: 1.7rem;
+}
+.span-6 img {
     height: auto;
-}
-
-/* Footer */
-
-.footer {
-    padding: 5rem 0;
-    /* background: url(../img/top-view-photo-of-keyboard-near-earphone-1420709.jpg); */
-    background-color: var(--bg-color);
-}
-
-.footer .social h5 {
-    font: normal 500 23px/30px var(--roboto);
-}
-
-.social a > i {
-    font-size: 22px;
-    padding: 2rem;
-    color: var(--text-color);
-}
-
-.social a:hover > i {
-    color: var(--primary-color);
+    padding-top: 10%;
+    width: 100%;
 }
