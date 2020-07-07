@@ -29,8 +29,8 @@ class EditProfileForm(FlaskForm):
 class ProjectForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=1, max=20)])
     imgfile = FileField('Project Image', validators=[FileRequired(), FileAllowed(uploads, 'Images only!')])
-    website = StringField('Website')
-    github_url =StringField('GitHub Link')
+    website = StringField('Website', validators=[Length(min=0, max=100)])
+    github_url =StringField('GitHub Link', validators=[Length(min=0, max=100)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])
     project_type = SelectField(label='Project Type', choices=PROJECT_TYPE)
     submit = SubmitField('Submit')
@@ -38,8 +38,8 @@ class ProjectForm(FlaskForm):
 class EditProjectForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=1, max=20)])
     imgfile = FileField('Project Image', validators=[FileAllowed(uploads, 'Images only!')]) 
-    website = StringField('Website')
-    github_url =StringField('GitHub Link')
+    website = StringField('Website', validators=[Length(min=0, max=100)])
+    github_url =StringField('GitHub Link', validators=[Length(min=0, max=100)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])
     project_type = SelectField(label='Project Type', choices=PROJECT_TYPE)
     submit = SubmitField('Submit')
