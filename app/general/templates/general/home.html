@@ -14,7 +14,34 @@
 
 <main class="site-main">
     
-    {% include 'general/banner.html' %}
+    <div class="content">
+        <!-- <div class="container"> -->
+            <div class="flexbox">
+                <div class="span-6 about-desc">
+                    <div class="inner-desc">
+                        <h1>Natacha Barcala </h1>
+                        <h3>Computer Science graduate seeking a Software Developer role.
+                        </h3>
+                        <p> I uded Python and the Flask framework to create this portfolio!
+                        </p>
+                        <div class="">
+                            <a href="{{ url_for('general.home', _anchor='portfolio') }}" class="btn border-pink">
+                                Portfolio
+                            </a>
+                            <!-- <button href="{{ url_for('general.home', _anchor='portfolio') }}" type="button" class="btn border-pink">Portfolio</button> -->
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="span-6 about-img">
+                    <img src="../../../static/img/remote-work-2.png" alt="">
+                </div>
+            </div>
+            <!-- <a href="{{ url_for('general.home', _anchor='navbar') }}" class="scroll">
+                <i class='bx bx-up-arrow-circle scroll-arrow' ></i>
+            </a> -->
+        <!-- </div> -->
+    </div>
 
     {% include 'general/about_me.html' %}
 
