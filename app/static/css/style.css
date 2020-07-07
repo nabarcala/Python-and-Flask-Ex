@@ -351,10 +351,25 @@ body {
     background-position-x: center;
     background-position-y: center;
 }
-.other-project-views {
-    margin: 5rem 0;
-}
 
+
+/*-------- Footer --------*/
+.footer {
+    background-color: var(--background-dark);
+    padding-bottom: 1rem;
+}
+.social-icons a {
+    font-size: 1.8rem;
+    margin: 1rem 2rem;
+    color: var(--border-color);
+}
+.social-icons a:hover {
+    color: var(--highlight-color);
+}
+.copyrights {
+    font-size: .8rem;
+    margin-top: 2rem;
+}
 
 
 /*-------- Media Queries --------*/
@@ -362,16 +377,26 @@ body {
     .span-6 img {
         padding-top: 25%;
     }
+    .about-desc {
+        text-align: left;
+    }
 }
 @media only screen and (max-width: 1100px) {
     .span-6 img {
         padding-top: 50%;
+    }
+    .inner-desc h3 {
+        font-size: 1.3rem;
+    }
+    .inner-desc h1 {
+        font-size: 2.5rem;
     }
 }
 @media only screen and (max-width: 1035px) {
     .services-main {
         grid-template-columns: repeat(2, 1fr);
     }
+    
 }
 
 @media only screen and (max-width: 990px) {
@@ -441,6 +466,9 @@ body {
         padding: 3rem 2rem;
         background-color: #181a1f;
     } */
+    .social-icons li {
+        font-size: 1.5rem;
+    }
 }
 @media only screen and (max-width: 770px) {
     .navbar {
