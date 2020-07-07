@@ -1,9 +1,13 @@
 
 /*-------- Global Classes --------*/
 
+a {
+    color: var(--highlight-color);
+}
 p {
     font-size: 1rem;
     line-height: 1.7rem;
+    text-align: justify;
 }
 .small-header {
     color: var(--highlight-color);
@@ -17,4 +21,8 @@ p {
 }
 .text-center {
     text-align: center;
+}
+.small-text {
+    font-size: .8rem;
+    line-height: 1.3rem;
 }

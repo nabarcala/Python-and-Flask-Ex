@@ -22,6 +22,13 @@
         <!-- Boxicon -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
+        <!-- Add fancyBox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+        <!-- Slick Slider CSS -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
         {% endblock %}
 
         {% block title %}
@@ -59,13 +66,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('general.home', _anchor='portfolio') }}">Portfolio</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('general.home', _anchor='experience') }}">Experience</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Blog</a>
-                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link disabled" href="{{ url_for('general.home', _anchor='experience') }}">Experience</a>
+                            </li> -->
 
                             {% if current_user.is_authenticated and current_user.is_admin %}
 
@@ -167,6 +170,13 @@
 
 <!-- Scroll Reveal -->
 <script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- fancyBox -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<!-- Slick Slider -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <script type="text/javascript" src="../../../static/js/portfolio.js" defer></script>
 <script type="text/javascript" src="../../../static/js/main.js" defer></script>

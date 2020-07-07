@@ -86,6 +86,7 @@ body {
 }
 .about-desc {
     display: flex;
+    text-align: justify;
 }
 .inner-desc {
     margin: auto;
@@ -203,7 +204,6 @@ body {
     margin-bottom: 1.2rem;
 }
 .single-service a {
-    color: var(--highlight-color);
     font-size: 1rem;
 }
 .services-inner {
@@ -211,4 +211,110 @@ body {
     position: relative;
     z-index: 1;
 }
+.services-inner a {
+    color: var(--highlight-color);
+}
 
+/*-------- Portfolio --------*/
+/* .portfolio {
+    padding: 3rem 1.3rem;
+    background: var(--background-dark);
+}
+.gallery-box {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    grid-gap: .5rem;
+}
+.gallery-item {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.gallery-item div,
+.gallery-item a {
+    height: 100%;
+    width: 100%;
+}
+.gallery-item a {
+    display: block;
+    background: rgba(0,0,0,0.5);
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--border-color);
+}
+.tab a {
+    margin-bottom: 2rem;
+    line-height: 2.5rem;
+}
+.tab a:hover {
+    color: var(--highlight-color);
+} */
+
+.portfolio {
+    padding: 5rem 0rem;
+    background: var(--background-dark);
+}
+.portfolio-slider {
+    margin: auto;
+    width: 80%;
+    top: 0; bottom: 0;
+    height: inherit !important;
+}
+.slider {
+    display: flex !important;
+}
+.project-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.project-info { 
+    padding: 3rem 2rem;
+    background-color: #181a1f;
+}
+.project-info h3 {
+    font-size: 1.7rem;
+    margin: 1rem 0;
+    text-align: justify;
+    color: var(--highlight-color);
+}
+.slick-track
+{
+    display: flex !important;
+}
+.slick-slide
+{
+    height: inherit !important;
+}
+.project-tools {
+    flex-direction: row;
+    align-self: flex-end;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.project-tools span {
+    margin-right: .5rem;
+    font-size: .9rem;
+    padding: .5rem;  
+}
+.project-links {
+    padding-top: 0;
+    flex-direction: row;
+    align-self: flex-end;
+    position: fixed;
+    bottom: 0; 
+}
+.link {
+    font-size: 1.6rem;
+    padding-right: 1rem; 
+}
+.project-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+}
+.other-project-views {
+    margin: 5rem 0;
+}

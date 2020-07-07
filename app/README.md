@@ -40,3 +40,4 @@ JQuery:
 * [Font Awesome](https://fontawesome.com/v4.7.0/): The iconic font and CSS toolkit.
 * [Boxicons](https://boxicons.com/): Simple vector icons set carefully crafted for designers and developers to use in your next project
 * [fancyBox](https://fancyapps.com/fancybox/): A tool that offers a nice and elegant way to add zooming functionality for images, html content and multi-media on your webpages.
+* [Slick Slider](https://kenwheeler.github.io/slick/): A responsive carousel jQuery plugin.
