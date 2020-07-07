@@ -11,31 +11,32 @@
 {% block app_content %}
 
 <!--- Welcome -->
+
 <main class="site-main">
     
     {% include 'general/banner.html' %}
 
+    {% include 'general/about_me.html' %}
+
+    {% include 'general/services_offered.html' %}
+
 
     <!-- Projects Done -->
-    <section class="project-area" id="portfolio">
+    <!-- <section class="project-area" id="portfolio">
         <div class="container">
             <div class="project-title pb-3">
                 <h1 class="text-uppercase text-center title-h1">
                     Project Portfolio
                 </h1>
-                <!-- <h1 class="text-uppercase title-h1">Quality Work</h1> -->
             </div>
 
-            <!-- Tab Links -->
             <div class="tab centered">
                 <button id="defaultOpen" class="btn btn-light tablinks" onclick="displayProjects(event, 'All')">All</button>
                 <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Software')">Software</button>
                 <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Art')">Art</button>
-                <!-- <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Latest')">Latest</button> -->
-                <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Upcoming')">Upcoming</button>
+               <button class="btn btn-light tablinks" onclick="displayProjects(event, 'Upcoming')">Upcoming</button>
               </div>
               
-              <!-- Tab content -->
             <div id="All" class="tabcontent centered">
                 {% if projects %}
                 
@@ -48,7 +49,6 @@
                     <p class="para">No projects</p>
                 {% endif %}
             </div>
-            <!-- Software Projects -->
             <div id="Software" class="tabcontent">
                 {% if software_projects %}
                 <div class="row grid" id="load-more">
@@ -60,7 +60,6 @@
                     <p class="para">No projects</p>
                 {% endif %}
             </div>
-            <!-- Art Projects -->
             <div id="Art" class="tabcontent">
                 {% if art_projects %}
                 <div class="row grid" id="load-more">
@@ -72,18 +71,6 @@
                     <p class="para">No projects</p>
                 {% endif %}
             </div>
-            <!-- Latest Projects -->
-            <!-- <div id="Latest" class="tabcontent">
-                {% if latest_projects %}
-                <div class="row grid" id="load-more">
-                    {% for project in latest_projects %} 
-                    {% include 'general/projects.html' %}
-                    {% endfor %}
-                </div>
-                {% else %}
-                    <p class="para">No latest projects</p>
-                {% endif %}
-            </div> -->
 
             <div id="Upcoming" class="tabcontent">
                 {% if upcoming_projects %}
@@ -97,10 +84,158 @@
                 {% endif %}
             </div>
         </div>
+    </section> -->
+
+    <!-- <section class="portfolio" id="portfolio">
+
+        <div class="text-center">
+            <h5 class="small-header"> Portfolio </h5>
+            <h3 class="big-header"> My Projects Shown Below </h3>
+            <div class="tab centered">
+                <a id="defaultOpen" class="btn tablinks" onclick="displayProjects(event, 'All')">All</a>
+                <a class="btn tablinks" onclick="displayProjects(event, 'Software')">Software</a>
+                <a class="btn tablinks" onclick="displayProjects(event, 'Art')">Art</a>
+                <a class="btn tablinks" onclick="displayProjects(event, 'Upcoming')">Upcoming</a>
+            </div>
+        </div>
+            
+        <div class="tabcontent" id="All">
+            <div class="gallery-box">
+            </div> 
+        </div>
+
+        <div class="tabcontent" id="Software">
+            <div class="gallery-box">
+            </div> 
+        </div>
+
+        <div class="tabcontent" id="Art">
+            <div class="gallery-box">
+                
+            </div> 
+        </div>
+
+        <div class="tabcontent" id="Upcoming">
+            <div class="gallery-box">
+
+            </div> 
+        </div>
+
+
+    </section> -->
+
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h5 class="small-header"> Portfolio </h5>
+                <h3 class="big-header"> Check Out My Projects </h3>
+            </div>
+            <div class="portfolio-slider">
+
+                <!-- SOFF -->
+                <div class="slider">
+                    <div class="project-item">
+                        <div class="project-info">
+                            <h3>SOFF</h3>
+                            <p> Part of a team of three that created a 
+                                fruit-slicing device equipped with a fruit identifier 
+                                and ripeness detection system that is controlled by an 
+                                accompanying Android app. </p>
+                            <p> Retrained a ResNet18 neural network 
+                                to classify a specific set of fruits using an 
+                                NVIDIA Jetson Nano, NVIDIA TensorRT, 
+                                and PyTorch. </p>
+                            <!-- <ul class="small-text">
+                                <li>Used an NVIDIA Jetson Nano, NVIDIA TensorRT, 
+                                    and PyTorch to retrain a ResNet18 neural network 
+                                    to classify a specific set of fruits. 
+                                </li>
+                                <li>Created an Android app to remote control a 
+                                    robotic fruit slicer using Bluetooth. 
+                                    This application read data from the 
+                                    Jetson Nano to determine the ripeness level 
+                                    and display a picture of the fruit on the 
+                                    Android device.
+                                </li>
+                                <li>Helped with connecting the motor to the 
+                                    Jetson Nano and test cutting different fruits. 
+                                </li>
+                            </ul> -->
+                            <ul class="project-tools">
+                                <span class="border-pink">Python</span>
+                                <span class="border-pink">Java</span>
+                                <span class="border-pink">PyTorch</span>
+                            </ul>
+                            <ul class="project-links">
+                                <a href="https://github.com/nabarcala/SOFF" class="link"><i class='bx bxl-github' ></i></a>
+                            </ul>
+                        </div>
+                        <div class="project-img" style="background-image: url('../../../static/img/SOFF.jpg');"></div>
+                    </div>
+                </div>
+
+                <!-- Lego Pill Sorter -->
+                <div class="slider">
+                    <div class="project-item">
+                        <div class="project-info">
+                            <h3>Lego Pill Sorter</h3>
+                            <p> Participated in a three-person team to plan and 
+                                create a pill sorter out of Legos. </p>
+                            <p> Programmed a Raspberry Pi to use a webcam to 
+                                sort pills based on the color using OpenCV.
+                                Created a ramp on the device with two exits for 
+                                the colored pills to roll through. </p>
+                            <ul class="project-tools">
+                                <span class="border-pink">Python</span>
+                                <span class="border-pink">OpenCV</span>
+                                <span class="border-pink">Raspberry Pi</span>
+                            </ul>
+                            <ul class="project-links">
+                                <a href="https://github.com/nabarcala/PillSort" class="link"><i class='bx bxl-github' ></i></a>
+                            </ul>
+                        </div>
+                        <div class="project-img" style="background-image: url('../../../static/img/pill-sorter.jpg');"></div>
+                    </div>
+                </div>
+
+                <!-- Med Tracker -->
+                <div class="slider">
+                    <div class="project-item">
+                        <div class="project-info">
+                            <h3>Mediaction Tracker</h3>
+                            <p> Served as a front-end developer on a team of 
+                                six to develop a web application that reminded the 
+                                user of when they should take their medications. </p>
+                            <p> Able to create appointments with doctors logged into 
+                                the web app. Integrated all appointments and medications 
+                                into the site's calendar. </p>
+                            <p> Designed and converted mockups into code. Created the uder interface. </p>
+                            <ul class="project-tools">
+                                <span class="border-pink">PHP</span>
+                                <span class="border-pink">HTML5</span>
+                                <span class="border-pink">CSS3</span>
+                                <span class="border-pink">JavaScript</span>
+                            </ul>
+                            <ul class="project-links">
+                                <a href="https://github.com/nabarcala/Medication-Tracker-Web-App" class="link"><i class='bx bxl-github' ></i></a>
+                            </ul>
+                        </div>
+                        <div class="project-img" style="background-image: url('../../../static/img/med-tracker9.png');"></div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="other-project-views">
+                <div class="text-center"> 
+                    <!-- <a href="#"> See Different Portfolio View  </a> -->
+                </div>
+            </div>
+
+        </div>
     </section>
 
-    {% include 'general/services_offered.html' %}
+
 
 </main>
-
 {% endblock %}
