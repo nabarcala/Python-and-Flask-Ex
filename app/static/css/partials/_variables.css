@@ -1,15 +1,38 @@
-/* CSS Variables */
-
+/*-------- CSS Variables --------*/
 :root {
-    --primary-color: #4458dc;
-    --primary-color2: #854fee;
-    --title-color: #141313;
-    --text-color: #777777;
-    --border-color: #201f1f17;
-    --gradient-color: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
-    --shadow-color: 0px 10px 30px rgba(118, 85, 225, 0.3);
-    --box-shadow: 0px 10px 30px rgba(57, 56, 61, 0.205);
-    --bg-color: rgba(228, 215, 252, 0.404);
-
+    --header-height: 3rem;
+    --font-semi: 600;
     --roboto: 'Roboto', sans-serif;
+}
+
+/*-------- Colors --------*/
+:root {
+    --background-color: #222831;
+    --background-dark: #1c2027;
+    /* --highlight-color: #2a607a; */
+    --highlight-color: #dc789d; 
+    --text-white: #fff;
+
+    --first-color: #f4cacb;
+    --second-color: #00537a;
+    --thrid-color: #6494ac;
+
+    --text-color1: #fedfdf;
+    --text-color2: #fef8f8;
+    --border-color: #999;
+}
+
+/*-------- Fonts --------*/
+:root {
+    --roboto: 'Roboto', sans-serif;
+    --big-font-size: 2rem;
+    --h2-font-size: 1.25rem;
+    --normal-font-size: 0.938rem;
+}
+@media screen and (min-width: 768px){
+    :root {
+        --big-font-size: 3.5rem;
+        --h2-font-size: 2rem;
+        --normal-font-size: 1rem;
+    }
 }

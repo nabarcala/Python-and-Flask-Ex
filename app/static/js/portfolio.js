@@ -1,3 +1,13 @@
+// Portfolio Slider
+$(document).ready(function(){
+  $('.portfolio-slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 10000,
+  });
+});
+
 
 // Get the element with id="default-open" and click on it
 document.getElementById("defaultOpen").click();
