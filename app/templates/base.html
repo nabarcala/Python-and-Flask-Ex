@@ -11,7 +11,7 @@
 
         {% block styles %}
         <!-- BootStrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -24,6 +24,9 @@
 
         <!-- Add fancyBox CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+        <!-- Google Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- Slick Slider CSS -->
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -38,22 +41,69 @@
 
     <body class="">
         
-        {% block navbar %}      
-        <header class="header_area">
-            <!-- <div class="container"> -->
+        {% block navbar %}   
+        
+        <header class="header-area">
+            <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+
+                <div>
+                    <a href="" class="navbar-brand border-pink">NB Portfolio</a>
+                </div>
+
+                <div class="nav-menu collapse navbar-collapse" id="nav-menu">
+                    <ul class="navbar-nav ml-auto nav-list">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('general.home') }}">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('general.home', _anchor='about-me') }}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('general.home', _anchor='services') }}">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('general.home', _anchor='portfolio') }}">Portfolio</a>
+                        </li>
+
+                        {% if current_user.is_authenticated and current_user.is_admin %}
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('admin.admin_dashboard') }}">Dashboard<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                        </li>
+
+                        {% elif current_user.is_authenticated and current_user.is_admin == 0 %}
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                        </li>
+
+                        {% endif %}
+
+                    </ul>
+                </div>
+
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class='bx bx-menu menu'></i> 
+                </div>
+            </nav>
+        </header>
+
+
+        <!-- <header class="header_area" id="navbar">
                 <nav class="navbar navbar-expand-lg navbar-dark bd-grid">
                     <a class="navbar-brand border-pink" href="#"> NB Portfolio </a>
-                    <!-- <button class="navbar-toggler" id="nav-toggle" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> -->
+
 
                     <div class="navbar-toggler" id="nav-toggle" data-toggle="collapse" data-target="#nav-menu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <i class='bx bx-menu menu'></i> 
-                        <!-- <i class="fa fa-bars menu" aria-hidden="true"></i> -->
+                        <i class="fa fa-bars menu" aria-hidden="true"></i>
                     </div>
 
-                    <div class="collapse navbar-collapse nav__menu" id="nav-menu">
-                        <ul class="navbar-nav ml-auto nav__list">
+                    <div class="collapse navbar-collapse nav-menu" id="nav-menu">
+                        <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ url_for('general.home') }}">Home<span class="sr-only">(current)</span></a>
                             </li>
@@ -66,9 +116,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('general.home', _anchor='portfolio') }}">Portfolio</a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link disabled" href="{{ url_for('general.home', _anchor='experience') }}">Experience</a>
-                            </li> -->
 
                             {% if current_user.is_authenticated and current_user.is_admin %}
 
@@ -89,8 +136,7 @@
                         </ul>
                     </div>
                 </nav>
-            <!-- </div> -->
-        </header>
+        </header> -->
 
         {% endblock %}
 
@@ -107,49 +153,18 @@
             {% block app_content %}{% endblock %}
 
         <footer class="footer">
-            
-        </footer>
-
-
-        <!-- <footer class="footer">
             <div class="container">
-                <div class="">
-                    <div class="social text-center">
-                        <h5 class="text-uppercase">Follow Me</h5>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-etsy"></i></a>
-                    </div>
-                    <div class="copyrights text-center">
-                        <p class="para">
-                            Copyright 2020 All rights reserved
-                            <a href="#"><span style="color: var(--primary-color)"></span></a>
-                        </p>
-                    </div>
+                <div class="social-icons text-center">
+                    <a href="https://linkedin.com/in/natacha-barcala"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/nabarcala"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.etsy.com/shop/TachasWorkshop"><i class="fab fa-etsy"></i></a>
+                </div>
+                <div class="copyrights text-center">
+                    Copyright &copy; 2020 All rights reserved
                 </div>
             </div>
-        </footer> -->
-
-        <!-- <footer class="social-icons">
-            <ul>
-                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fab fa-github"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-etsy"></i></a></li>
-            </ul>
-        </footer> -->
-
-        <!-- <footer class="footer">
-            <p class="footer__title"> Natacha </p>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-linkedin-square'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-github'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-            </div>
-            <p>&#169; 2020 Copyright all rights reserved</p>
-        </footer> -->
+        </footer>
 
         {% endblock %}
     </body>
