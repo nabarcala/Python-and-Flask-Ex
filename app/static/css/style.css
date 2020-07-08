@@ -372,17 +372,23 @@ body {
 
 
 /*-------- Media Queries --------*/
-@media only screen and (max-width: 1328px) {
+@media only screen and (max-width: 1380px) {
     .span-6 img {
-        padding-top: 25%;
+        padding-top: 30%;
     }
     .about-desc {
         text-align: left;
     }
 }
 @media only screen and (max-width: 1100px) {
+    .content {
+        height: auto !important;
+    }
+    .about-desc {
+        margin-top: 5rem;
+    }
     .span-6 img {
-        padding-top: 50%;
+        padding-top: 20%;
     }
     .inner-desc h3 {
         font-size: 1.3rem;
@@ -395,7 +401,7 @@ body {
     .services-main {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
 }
 
 @media only screen and (max-width: 990px) {
@@ -455,18 +461,6 @@ body {
     .project-img {
         display: none;
     }
-    /* .slider {
-        display: flex !important;
-    }
-    .project-item {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(2, );
-    }
-    .project-info { 
-        padding: 3rem 2rem;
-        background-color: #181a1f;
-    } */
     .social-icons li {
         font-size: 1.5rem;
     }
