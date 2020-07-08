@@ -29,7 +29,16 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 
 
 // Scroll to top button
-const btnScrollToTop = document.querySelector('#scroll-to-top');
+const btnScrollToTop = document.querySelector('.scroll-to-top');
+
+window.addEventListener("scroll", function () {
+    // If scrolled 100px from top, see scroll button
+    if(window.pageYOffset > 100) {
+        btnScrollToTop.classList.add("active");
+    } else {
+        btnScrollToTop.classList.remove("active");
+    }
+});
 
 btnScrollToTop.addEventListener("click", function () {
     // may not work in all browsers
