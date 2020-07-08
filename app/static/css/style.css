@@ -100,41 +100,28 @@ body {
 }
 
 
-
-
-
-
-
-
-/* .header_area {
-    justify-content: space-between;
-    padding: 1rem 0;
-    margin: 0 6rem;
-}
-.header_area li {
-    margin: 0 1rem;
-}
-.nav-link {
-    color: var(--text-white);
-    font-size: 1.2rem;
-}
-.navbar-brand {
-    font-size: 1.4rem;
-    background-color: transparent;
-    color: var(--text-white);
-    padding: .5rem 1rem;
-    text-align: center;
-}
-.navbar-toggler i.menu {
-    font-size: 1.4rem;
+/*-------- Scroll to Top --------*/
+#scroll-to-top {
+    font-size: 2rem;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     background: var(--highlight-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); 
     color: var(--text-white);
-    padding: .6rem .8rem;
-    text-align: center;
-    border-radius: 9px;
-} */
-
-
+    outline: none;
+    cursor: pointer;
+    border: none;
+}
+#scroll-to-top:active {
+    background-color: var(--highlight-dark);
+}
+#scroll-to-top i {
+    padding-top: .5rem;
+}
 
 
 /*-------- Banner --------*/
