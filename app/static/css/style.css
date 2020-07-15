@@ -38,6 +38,9 @@ body {
     border-color: var(--highlight-color);
     color: var(--highlight-color);
 }
+.border-pink:hover {
+    color: var(--text-white);
+}
 .bd-grid {
     max-width: 1024px;
     display: grid;
