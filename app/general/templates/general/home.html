@@ -128,47 +128,58 @@
             <!-- Portfolio Wrapper -->
             <div class="portfolio-wrapper">
 
+                {% if projects %}
+                {% for project in projects %}
+
+                <!-- Project -->
                 <div class="project">
                     <img class="thumbnail" src="../../../static/img/pill-sorter.jpg" alt="">
                     <div class="overlay">
                         <a id="overlay-click" class="overlay-click" ><i class='bx bx-zoom-in' ></i></a>
-                        <p class="overlay-text">Lego Pill Sorter</p>
+                        <p class="overlay-text">{{ project.title }}</p>
                     </div>
+                </div> <!-- end of project modal -->
+
+                <!-- Project Modal -->
+                <div class="bg-modal" id="modal{{project.id}}"> 
+                    <div class="modal-content">
+                        <div class="modal-title">
+                            <h3 class="project-title">{{ project.title }}</h3>
+                            <div class="modal-close"><i class="fas fa-times"></i></div>
+                        </div>
+                        <div class="modal-data">
+                            <img class="modal-thumbnail" src="../../../static/img/pill-sorter.jpg" alt="">
+                            <div class="project-description">
+                                <p class="project-intro"> {{ project.description }} </p>
+                                <ul class="project-tools">
+                                    <span class="border-pink">Python</span>
+                                    <span class="border-pink">OpenCV</span>
+                                    <span class="border-pink">Raspberry Pi</span>
+                                </ul>
+                                <ul class="project-links">
+                                    {% if project.github_url %}
+                                    <a href="{{ project.github_url }}" class="link"><i class='bx bxl-github' ></i></a>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end of project modal -->
+
+
+                {% endfor %}
+                {% else %}
+
+                <div class="text-center">
+                    <h3 class="text-center"> Unable to get project data </h3>
                 </div>
+
+                {% endif %}
 
             </div> <!-- End of portfolio wrapper -->
         </div> 
 
-        <!-- Project Modal -->
-        <div class="bg-modal">  
-
-            <div class="modal-content">
-                <div class="modal-title">
-                    <h3 class="project-title">Lego Pill Sorter</h3>
-                    <div class="modal-close"><i class="fas fa-times"></i></div>
-                </div>
-                <div class="modal-data">
-                    <img class="modal-thumbnail" src="../../../static/img/pill-sorter.jpg" alt="">
-                    <div class="project-description">
-                        <p class="project-intro"> Participated in a three-person team to plan and 
-                            create a pill sorter out of Legos. </p>
-                        <p> Programmed a Raspberry Pi to use a webcam to 
-                            sort pills based on the color using OpenCV.
-                            Created a ramp on the device with two exits for 
-                            the colored pills to roll through. </p>
-                        <ul class="project-tools">
-                            <span class="border-pink">Python</span>
-                            <span class="border-pink">OpenCV</span>
-                            <span class="border-pink">Raspberry Pi</span>
-                        </ul>
-                        <ul class="project-links">
-                            <a href="https://github.com/nabarcala/PillSort" class="link"><i class='bx bxl-github' ></i></a>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div> <!-- end of project modal -->
+        
 
     </section>
 
