@@ -1,3 +1,14 @@
+
+document.getElementById('overlay-click').addEventListener('click', function() {
+  document.querySelector('.bg-modal').style.display = 'flex'; 
+});
+
+document.querySelector('.modal-close').addEventListener('click', function() {
+  document.querySelector('.bg-modal').style.display = 'none'; 
+})
+
+
+
 // Portfolio Slider
 $(document).ready(function(){
   $('.portfolio-slider').slick({
@@ -32,4 +43,6 @@ function displayProjects(evt, projectName) {
   document.getElementById(projectName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+
 
