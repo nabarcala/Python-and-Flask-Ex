@@ -37,7 +37,10 @@
           <tbody>
             {% for project in projects %}
               <tr>
-                <td> <img src="{{ project.imgurl }}" alt="project-img" class="img-fluid"> </td>
+                <td> <img src="{{ project.imgurl }}" alt="project-img" class="img-fluid">
+                  {{ project.imgurl }}
+                  {{ project.imgfile }}
+                </td>
                 <td> {{ project.title|replace("-", " ") }} </td>
                 <td> {{ project.description }} </td>
                 {% if project.website %}

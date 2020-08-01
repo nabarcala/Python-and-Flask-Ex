@@ -26,8 +26,7 @@ def home():
     # return render_template('general/home.html', projects=projects, skills=skill_list, 
     #     title='Welcome', admin=admin)
 
-    return render_template('general/home.html', projects=projects, 
-        title='Welcome', admin=admin)
+    return render_template('general/home.html', projects=projects, title='Welcome', admin=admin)
 
 @general.route('/project/<int:id>', methods=['GET', 'POST'])
 def project(id):
