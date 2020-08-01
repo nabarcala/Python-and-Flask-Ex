@@ -133,7 +133,7 @@
 
                 <!-- Project -->
                 <div class="project">
-                    <img class="thumbnail" src="../../../static/img/pill-sorter.jpg" alt="">
+                    <img class="thumbnail" src="{{ project.imgurl }}" alt="">
                     <div class="overlay">
                         <a id="overlay-click" class="overlay-click" ><i class='bx bx-zoom-in' ></i></a>
                         <p class="overlay-text">{{ project.title }}</p>
@@ -148,11 +148,15 @@
                             <div class="modal-close"><i class="fas fa-times"></i></div>
                         </div>
                         <div class="modal-data">
-                            <img class="modal-thumbnail" src="../../../static/img/pill-sorter.jpg" alt="">
+                            <img class="modal-thumbnail" src="{{ project.imgurl }}" alt="">
                             <div class="project-description">
                                 <p class="project-intro"> {{ project.description }} </p>
                                 <ul class="project-tools">
-                                    
+                                {% if skills %}
+                                    {% for skill in skills %}
+                                    <span class="border-pink">{{ skill }}</span>
+                                    {% endfor %}
+                                {% endif %}
                                 </ul>
                                 <ul class="project-links">
                                     {% if project.github_url %}

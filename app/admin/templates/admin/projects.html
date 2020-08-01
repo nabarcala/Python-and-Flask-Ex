@@ -43,14 +43,18 @@
                 {% if project.website %}
                   <td> {{ project.website }} </td>
                   {% else %}
-                    <td>  </td>
-                  {% endif %}
-                {% if project.github_url %}
-                  <td> {{ project.github_url }} </td>
-                {% else %}
                   <td>  </td>
                 {% endif %}
-                
+                {% if project.github_url %}
+                  <td> {{ project.github_url }} </td>
+                  {% else %}
+                  <td>  </td>
+                {% endif %}
+                {% if project.skills %}
+                  <td> {{ project.skills }} </td> 
+                  {% else %}
+                  <td>  </td>
+                {% endif %}
                 <td> <a href="{{ url_for('admin.edit_project', id=project.id) }}"><i class="fa fa-pencil">  Edit </a></td>
                 <td> <a href="{{ url_for('admin.delete_project', id=project.id) }}"><i class="fa fa-trash"> Delete </a></td>
               </tr>
