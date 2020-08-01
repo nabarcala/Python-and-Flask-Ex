@@ -152,11 +152,7 @@
                             <div class="project-description">
                                 <p class="project-intro"> {{ project.description }} </p>
                                 <ul class="project-tools">
-                                    {% if skills %}
-                                        {% for skill in skills %}
-                                        <span class="border-pink">{{ skill }}</span>
-                                        {% endfor %}
-                                    {% endif %}
+                                    
                                 </ul>
                                 <ul class="project-links">
                                     {% if project.github_url %}

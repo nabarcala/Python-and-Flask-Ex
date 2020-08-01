@@ -14,7 +14,6 @@ followers = db.Table('followers',
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
 
-
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     is_admin = db.Column(db.Boolean, default=False)
@@ -92,7 +91,6 @@ class Projects(db.Model):
     description = db.Column(db.String(5000))
     project_type = db.Column(db.String(3))
     skills = db.Column(db.String(500)) 
-
 
     def __repr__(self):
         return '<Project title: {}>'.format(self.title)
