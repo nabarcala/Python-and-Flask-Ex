@@ -66,12 +66,9 @@ def add_project():
             website = form.website.data,
             github_url = form.github_url.data,
             description = form.description.data,
-            skills = form.skills.data,
+            # skills = form.skills.data,
             project_type = form.project_type.data
         )
-
-        # projects.add_skill(form.skills.data)
-        
         try:
             db.session.add(projects)
             db.session.commit()
@@ -107,7 +104,7 @@ def edit_project(id):
         project.website = form.website.data
         project.github_url = form.github_url.data
         project.description = form.description.data
-        project.skills = form.skills.data
+        # project.skills = form.skills.data
         project.project_type = form.project_type.data
         db.session.commit()
         flash('Project has been successfully updated.')
@@ -119,7 +116,7 @@ def edit_project(id):
     form.website.data = project.website
     form.github_url.data = project.github_url
     form.description.data = project.description
-    form.skills.data = project.skills
+    # form.skills.data = project.skills
     form.project_type.data = project.project_type
     return render_template('admin/edit_form.html', form=form, title='Edit Project', action='Edit', add_project=add_project, project=project)
 

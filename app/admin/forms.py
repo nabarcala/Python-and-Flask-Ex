@@ -32,7 +32,7 @@ class ProjectForm(FlaskForm):
     website = StringField('Website', validators=[Length(min=0, max=100)])
     github_url =StringField('GitHub Link', validators=[Length(min=0, max=100)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])
-    skills = StringField('Skills') 
+    # skills = StringField('Skills') 
     project_type = SelectField(label='Project Type', choices=PROJECT_TYPE)
     submit = SubmitField('Submit')
 
@@ -42,7 +42,7 @@ class EditProjectForm(FlaskForm):
     website = StringField('Website', validators=[Length(min=0, max=100)])
     github_url =StringField('GitHub Link', validators=[Length(min=0, max=100)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])
-    skills = StringField('Skills') 
+    # skills = StringField('Skills') 
     project_type = SelectField(label='Project Type', choices=PROJECT_TYPE)
     submit = SubmitField('Submit')
 
