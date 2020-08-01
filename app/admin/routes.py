@@ -165,11 +165,6 @@ def edit_data(id):
         user.headline = form.headline.data
         user.about_me = form.about_me.data
 
-        tech = Tech(
-            name = form.skill.data
-        )
-
-        db.session.add(tech)
         db.session.commit()
         flash('Data has been successfully updated.')
         return redirect(url_for('admin.list_data'))
