@@ -32,6 +32,16 @@ body {
     width: 90%;
     margin: 0 auto;
 }
+.container-fluid,
+.container-fluid h1,
+.container-fluid h2,
+.container-fluid h3,
+.container-fluid p,
+.container-fluid table,
+.container-fluid button,
+.container-fluid a { 
+    color: var(--text-white);
+}
 .border-pink {
     border: 2px solid black;
     border-radius: 12px;

@@ -152,13 +152,18 @@
                             <div class="project-description">
                                 <p class="project-intro"> {{ project.description }} </p>
                                 <ul class="project-tools">
-                                    <span class="border-pink">Python</span>
-                                    <span class="border-pink">OpenCV</span>
-                                    <span class="border-pink">Raspberry Pi</span>
+                                    {% if skills %}
+                                        {% for skill in skills %}
+                                        <span class="border-pink">{{ skill }}</span>
+                                        {% endfor %}
+                                    {% endif %}
                                 </ul>
                                 <ul class="project-links">
                                     {% if project.github_url %}
-                                    <a href="{{ project.github_url }}" class="link"><i class='bx bxl-github' ></i></a>
+                                        <a href="{{ project.github_url }}" class="link"><i class='bx bxl-github' ></i></a>
+                                    {% endif %}
+                                    {% if project.website %}
+                                        <a href="{{ project.website }}" class="link"><i class='bx bx-link-external'></i></a>
                                     {% endif %}
                                 </ul>
                             </div>

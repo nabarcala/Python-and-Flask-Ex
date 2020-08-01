@@ -19,6 +19,9 @@ def home():
     Home page 
     """
     projects = Projects.query.limit(6).all()
+    all_skills = Projects.query.with_entities(Projects.skills).first()
+    skill_list = all_skills.skills.split(", ")
+
     # software_projects = Projects.query.filter_by(project_type='SW').limit(6).all()
     # art_projects = Projects.query.filter_by(project_type='AR').limit(6).all()
     # latest_projects = Projects.query.filter_by(project_type='LT').limit(6).all()
@@ -29,7 +32,7 @@ def home():
     #     software_projects=software_projects, art_projects=art_projects, 
     #     latest_projects=latest_projects, upcoming_projects=upcoming_projects, 
     #     title='Welcome', admin=admin)
-    return render_template('general/home.html', projects=projects, 
+    return render_template('general/home.html', projects=projects, skills=skill_list, 
         title='Welcome', admin=admin)
 
 @general.route('/project/<int:id>', methods=['GET', 'POST'])

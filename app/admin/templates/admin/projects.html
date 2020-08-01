@@ -30,7 +30,7 @@
               <th width="40%"> Description </th>
               <th width="15%"> Website </th>
               <th width="15%"> Github </th>
-              <th width="15%"> Project Type </th>
+              <th width="15%"> Skills </th>
               <th width="15%"> Edit </th>
               <th width="15%"> Delete </th>
           </thead>
@@ -50,7 +50,11 @@
                 {% else %}
                   <td>  </td>
                 {% endif %}
-                <td> {{ project.project_type }} </td>
+                {% if project.skills %}
+                  <td> {{ project.skills }} </td>
+                  {% else %}
+                    <td>  </td>
+                  {% endif %}
                 <td> <a href="{{ url_for('admin.edit_project', id=project.id) }}"><i class="fa fa-pencil">  Edit </a></td>
                 <td> <a href="{{ url_for('admin.delete_project', id=project.id) }}"><i class="fa fa-trash"> Delete </a></td>
               </tr>

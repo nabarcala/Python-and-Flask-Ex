@@ -62,12 +62,16 @@ def add_project():
         projects = Projects(
             title = form.title.data,
             imgfile = filename,
-            imgurl = uploads.url(filename),
+            imgurl = uploads.url(filename), 
             website = form.website.data,
             github_url = form.github_url.data,
             description = form.description.data,
+            skills = form.skills.data,
             project_type = form.project_type.data
         )
+
+        # projects.add_skill(form.skills.data)
+        
         try:
             db.session.add(projects)
             db.session.commit()
@@ -103,6 +107,7 @@ def edit_project(id):
         project.website = form.website.data
         project.github_url = form.github_url.data
         project.description = form.description.data
+        project.skills = form.skills.data
         project.project_type = form.project_type.data
         db.session.commit()
         flash('Project has been successfully updated.')
@@ -114,6 +119,7 @@ def edit_project(id):
     form.website.data = project.website
     form.github_url.data = project.github_url
     form.description.data = project.description
+    form.skills.data = project.skills
     form.project_type.data = project.project_type
     return render_template('admin/edit_form.html', form=form, title='Edit Project', action='Edit', add_project=add_project, project=project)
 
@@ -161,6 +167,12 @@ def edit_data(id):
         user.career = form.career.data
         user.headline = form.headline.data
         user.about_me = form.about_me.data
+
+        tech = Tech(
+            name = form.skill.data
+        )
+
+        db.session.add(tech)
         db.session.commit()
         flash('Data has been successfully updated.')
         return redirect(url_for('admin.list_data'))
@@ -169,7 +181,6 @@ def edit_data(id):
     form.headline.data = user.headline
     form.about_me.data = user.about_me
     return render_template('admin/edit_form.html', form=form, title='Edit Data', action='Edit', edit_data=edit_data, admin=user)
-
 
 #
 # @admin.route('/admin/<username>')
