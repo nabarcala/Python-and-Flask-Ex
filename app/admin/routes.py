@@ -2,8 +2,17 @@ from flask import Blueprint
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_uploads import configure_uploads, IMAGES, UploadSet
+
 from werkzeug.urls import url_parse
 from datetime import datetime
+import base64
+import os
+
+import cloudinary
+from cloudinary.api import delete_resources_by_tag, resources_by_tag
+from cloudinary.uploader import upload
+from cloudinary.utils import cloudinary_url 
+from cloudinary import CloudinaryImage
 
 from app import db, uploads
 from app.admin.forms import EditProjectForm, ProjectForm, EditDataForm
@@ -12,6 +21,12 @@ from app.models import User, Projects
 
 admin = Blueprint('admin', __name__,
                    template_folder='templates')
+
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+UPLOAD_FOLDER = 'app/static/img/uploads'
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 def check_admin():
@@ -40,6 +55,7 @@ def list_projects():
     """
     List all projects in portfolio
     """
+    imgfile = []
     check_admin()
     projects = Projects.query.all()
     return render_template('admin/projects.html', projects=projects, title="Projects")
@@ -56,15 +72,54 @@ def add_project():
 
     form = ProjectForm()
     if form.validate_on_submit():
-        filename = uploads.save(form.imgfile.data)
+        # filename = uploads.save(form.imgfile.data)
         # return filename
 
+        file = form.imgfile.data
+
+        file_split = file.filename.rsplit('.', 1)
+        filename = file_split[0]
+        file_url_end = "." + file_split[1]
+
+
+
+        flash(filename)
+        # filename = file.filename
+        file_upload_url = os.path.join(UPLOAD_FOLDER, filename)
+
+        # Get image
+        if filename == '':
+            flash('No image selected.')
+            return redirect(url_for('admin.add_project'))
+        
+        if file and allowed_file(file.filename): 
+            file.save(file_upload_url)
+            flash('Image successfully uploaded and displayed')
+
+            response = upload ( 
+                file_upload_url,
+                tags="Project",
+                public_id=filename,
+            )
+            url, options = cloudinary_url(
+                response['public_id'],
+                format=response['format']
+            )
+
+        # Save data to database
         projects = Projects(
             title = form.title.data,
-            imgfile = filename,
-            imgurl = uploads.url(filename), 
+
+            # imgname = file.filename, 
+            # imgfile = file.read(), 
+            
+            # imgfile = filename,
+            imgname = filename, 
+            img_urlend = file_url_end,
+
             website = form.website.data,
             github_url = form.github_url.data,
+
             description = form.description.data,
             # skills = form.skills.data,
             project_type = form.project_type.data
@@ -75,9 +130,11 @@ def add_project():
             flash('Your project post is now live!')
         except:
             flash('Error: project name already exists.')
-            return redirect(url_for('portfolio'))
+            return redirect(url_for('admin.add_project'))
 
         return redirect(url_for('admin.list_projects'))
+
+        # return imgfile.filename
 
     return render_template('admin/edit_form.html', form=form, title='Create a Project', action='Add', add_project=add_project)
 
@@ -94,12 +151,37 @@ def edit_project(id):
     project = Projects.query.get_or_404(id)
     form = EditProjectForm()
     if form.validate_on_submit():
-        project.title = form.title.data
+        # project.title = form.title.data
         
         if form.imgfile.data:
-            filename = uploads.save(form.imgfile.data)
-            project.imgfile = filename
-            project.imgurl = uploads.url(filename)
+            file = form.imgfile.data
+
+            file_split = file.filename.rsplit('.', 1)
+            filename = file_split[0]
+            file_url_end = "." + file_split[1]
+
+            flash(filename)
+            # filename = file.filename
+            file_upload_url = os.path.join(UPLOAD_FOLDER, filename)
+
+            # Get image
+            
+            if file and allowed_file(file.filename): 
+                file.save(file_upload_url)
+                flash('Image successfully uploaded and displayed')
+
+                response = upload ( 
+                    file_upload_url,
+                    tags="Project",
+                    public_id=filename,
+                )
+                url, options = cloudinary_url(
+                    response['public_id'],
+                    format=response['format']
+                )
+
+                project.imgname = filename
+                project.img_urlend = file_url_end
 
         project.website = form.website.data
         project.github_url = form.github_url.data
@@ -111,7 +193,12 @@ def edit_project(id):
         return redirect(url_for('admin.list_projects'))
 
     form.title.data = project.title
-    form.imgfile.data = project.imgfile
+
+    file = project.imgname + project.img_urlend 
+    form.imgfile.data = file
+
+
+    # form.imgfile.data = project.imgfile
     # form.imgurl.data = project.imgurl
     form.website.data = project.website
     form.github_url.data = project.github_url

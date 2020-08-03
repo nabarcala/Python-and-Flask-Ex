@@ -37,9 +37,9 @@
           <tbody>
             {% for project in projects %}
               <tr>
-                <td> <img src="{{ project.imgurl }}" alt="project-img" class="img-fluid">
-                  {{ project.imgurl }}
-                  {{ project.imgfile }}
+                <td>
+                  <img src="https://res.cloudinary.com/nbrcl/image/upload/v1596474365/{{ project.imgname + project.img_urlend }}" alt="project-img" class="img-fluid">
+                  {{ project.imgname + project.img_urlend }}
                 </td>
                 <td> {{ project.title|replace("-", " ") }} </td>
                 <td> {{ project.description }} </td>

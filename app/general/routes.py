@@ -8,6 +8,8 @@ from app import db
 from app.models import User, Projects
 # import utils
 
+import base64
+
 general = Blueprint('general', __name__,
                    template_folder='templates')
 
@@ -19,6 +21,7 @@ def home():
     Home page 
     """
     projects = Projects.query.limit(6).all()
+    # img_file = Projects.query.with_entities(Projects.imgfile).first()
     # all_skills = Projects.query.with_entities(Projects.skills).first()
     # skill_list = all_skills.skills.split(", ")
     admin = User.query.get(1)
@@ -26,12 +29,16 @@ def home():
     # return render_template('general/home.html', projects=projects, skills=skill_list, 
     #     title='Welcome', admin=admin)
 
-    return render_template('general/home.html', projects=projects, title='Welcome', admin=admin)
+    return render_template('general/home.html', projects=projects, 
+        title='Welcome', admin=admin)
 
 @general.route('/project/<int:id>', methods=['GET', 'POST'])
 def project(id):
     """
     Display a specific project's information 
+    
     """
     project = Projects.query.get(id)
+    # imgfile = base64.b64decode(project.imgfile)
+    # img_file = Projects.query.with_entities(Projects.imgfile).first()
     return render_template('general/project_info.html', project=project)

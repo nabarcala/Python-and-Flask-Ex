@@ -81,11 +81,11 @@ def load_user(id):
 
 class Projects(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(30),
-                      unique=True,
-                      info={"validators": Regexp("^[A-Za-z0-9_-]*$")})
-    imgfile = db.Column(db.String(100))
-    imgurl = db.Column(db.String(100))
+    title = db.Column(db.String(30), unique=True, info={"validators": Regexp("^[A-Za-z0-9_-]*$")})
+    imgfile = db.Column(db.LargeBinary) 
+    # imgfile = db.Column(db.String(100))
+    imgname = db.Column(db.String(100))
+    img_urlend = db.Column(db.String(10))
     website = db.Column(db.String(100))
     github_url = db.Column(db.String(100))
     description = db.Column(db.String(5000))

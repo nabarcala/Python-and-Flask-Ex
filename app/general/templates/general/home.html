@@ -133,7 +133,7 @@
 
                 <!-- Project -->
                 <div class="project">
-                    <img class="thumbnail" src="../../../static/img/uploads/{{ project.imgfile }}" alt="">
+                    <img class="thumbnail" src="https://res.cloudinary.com/nbrcl/image/upload/v1596474365/{{ project.imgname + project.img_urlend }}" alt="">
                     <div class="overlay">
                         <a id="overlay-click" class="overlay-click" ><i class='bx bx-zoom-in' ></i></a>
                         <p class="overlay-text">{{ project.title }}</p>
@@ -148,7 +148,7 @@
                             <div class="modal-close"><i class="fas fa-times"></i></div>
                         </div>
                         <div class="modal-data">
-                            <img class="modal-thumbnail" src="../../../static/img/uploads/{{ project.imgfile }}" alt="">
+                            <img class="modal-thumbnail" src="https://res.cloudinary.com/nbrcl/image/upload/v1596474365/{{ project.imgname + project.img_urlend }}" alt="">
                             <div class="project-description">
                                 <p class="project-intro"> {{ project.description }} </p>
                                 <ul class="project-tools">

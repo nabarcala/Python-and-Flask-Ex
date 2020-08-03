@@ -28,7 +28,7 @@ class EditProfileForm(FlaskForm):
 
 class ProjectForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=1, max=20)])
-    imgfile = FileField('Project Image', validators=[FileAllowed(uploads, 'Images only!')])
+    imgfile = FileField('Project Image', validators=[DataRequired(), FileAllowed(uploads, 'Images only!')])
     website = StringField('Website', validators=[Length(min=0, max=100)])
     github_url =StringField('GitHub Link', validators=[Length(min=0, max=100)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=5000)])
