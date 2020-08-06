@@ -44,12 +44,23 @@ body {
 }
 .border-pink {
     border: 2px solid black;
-    border-radius: 12px;
+    border-radius: 3px;
     border-color: var(--highlight-color);
     color: var(--highlight-color);
+    text-transform: uppercase;
+    font-weight: 700;
 }
 .border-pink:hover {
     color: var(--text-white);
+    text-decoration: none;
+    background-color: var(--highlight-color);
+    transition: 0.3s ease-in-out;
+}
+.grey-pill {
+    border: 1px solid var(--background-light);
+    background-color: var(--background-light);
+    text-transform: uppercase;
+    border-radius: 5px;
 }
 .bd-grid {
     max-width: 1024px;
@@ -283,6 +294,62 @@ body {
     color: var(--highlight-color);
 }
 
+/*-------- Portfolio --------*/
+
+.portfolio-container {
+    margin-top: 5rem;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5rem;
+}
+.portfolio-container::after {
+    width: 100%;
+    content: "";
+    height: 2px;
+    /* border-bottom: 1px solid var(--background-color); */
+}
+hr {
+    height: 2px;
+    background-color: var(--background-color);
+}
+.portfolio-container img {
+    max-width: 100%;
+    display: block;
+    width: 100%;
+    /* height: 200px; */
+    object-fit: cover; 
+}
+.project {
+}
+.project-i {
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.project-i h3 {
+    /* text-align: left; */
+    float: left;
+}
+.links-project {
+    text-align: right;
+    margin-right: 1rem;
+}
+.links-project a,
+.links-project span {
+    padding: .6rem;
+    margin-left: .5rem;
+}
+.links-project a:hover {
+    color: var(--text-white);
+    text-decoration: none;
+    background-color: var(--highlight-color);
+    transition: 0.3s ease-in-out;
+}
+.project-d {
+    margin-top: 2rem;
+}
+
+
 
 
 /*-------- Portfolio --------*/
@@ -291,65 +358,6 @@ body {
     width: 100%;
     background: var(--background-dark);
 }
-/* .portfolio-slider {
-    margin: auto;
-    width: 80%;
-    top: 0; bottom: 0;
-    height: inherit !important;
-}
-.slider {
-    display: flex !important;
-}
-.project-item {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-.project-info { 
-    padding: 3rem 2rem;
-    background-color: #181a1f;
-}
-.project-info h3 {
-    font-size: 1.7rem;
-    margin: 1rem 0;
-    text-align: justify;
-    color: var(--highlight-color);
-}
-.slick-track
-{
-    display: flex !important;
-}
-.slick-slide
-{
-    height: inherit !important;
-}
-.project-tools {
-    flex-direction: row;
-    align-self: flex-end;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-.project-tools span {
-    margin-right: .5rem;
-    font-size: .9rem;
-    padding: .5rem;  
-}
-.project-links {
-    padding-top: 0;
-    flex-direction: row;
-    align-self: flex-end;
-    position: fixed;
-    bottom: 0; 
-}
-.link {
-    font-size: 1.6rem;
-    padding-right: 1rem; 
-}
-.project-img {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-} */
 .portfolio-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, 350px);
@@ -470,10 +478,10 @@ body {
     align-self: flex-end;
     margin: 2rem 0;
 }
-.project-tools span:hover {
+/* .project-tools span:hover {
     background-color: var(--highlight-dark);
     border-color: var(--highlight-dark);
-}
+} */
 .project-tools span {
     margin-right: .5rem;
     font-size: .9rem;
