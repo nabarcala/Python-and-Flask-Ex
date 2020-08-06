@@ -11,9 +11,9 @@ virtualenv flask_venv
 source flask_venv/Scripts/activate
 ```
 
-The simplest way to install Flask:
+Then install all the required packages from requirements.txt like so:
 ```
-pip install flask
+pip install -r requirements.txt
 ```
 
 ## Web Application

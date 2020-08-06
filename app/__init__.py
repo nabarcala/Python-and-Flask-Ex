@@ -33,6 +33,7 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     # app.config['UPLOADED_IMAGES_DEST'] = 'static/img/uploads'
 
+
     configure_uploads(app, uploads)
 
     db.init_app(app)

@@ -30,27 +30,34 @@
               <th width="40%"> Description </th>
               <th width="15%"> Website </th>
               <th width="15%"> Github </th>
-              <th width="15%"> Project Type </th>
+              <th width="15%"> Skills </th>
               <th width="15%"> Edit </th>
               <th width="15%"> Delete </th>
           </thead>
           <tbody>
             {% for project in projects %}
               <tr>
-                <td> <img src="{{ project.imgurl }}" alt="project-img" class="img-fluid"> </td>
+                <td>
+                  <img src="https://res.cloudinary.com/nbrcl/image/upload/v1596474365/{{ project.imgname + project.img_urlend }}" alt="project-img" class="img-fluid">
+                  {{ project.imgname + project.img_urlend }}
+                </td>
                 <td> {{ project.title|replace("-", " ") }} </td>
                 <td> {{ project.description }} </td>
                 {% if project.website %}
                   <td> {{ project.website }} </td>
                   {% else %}
-                    <td>  </td>
-                  {% endif %}
-                {% if project.github_url %}
-                  <td> {{ project.github_url }} </td>
-                {% else %}
                   <td>  </td>
                 {% endif %}
-                <td> {{ project.project_type }} </td>
+                {% if project.github_url %}
+                  <td> {{ project.github_url }} </td>
+                  {% else %}
+                  <td>  </td>
+                {% endif %}
+                {% if project.skills %}
+                  <td> {{ project.skills }} </td> 
+                  {% else %}
+                  <td>  </td>
+                {% endif %}
                 <td> <a href="{{ url_for('admin.edit_project', id=project.id) }}"><i class="fa fa-pencil">  Edit </a></td>
                 <td> <a href="{{ url_for('admin.delete_project', id=project.id) }}"><i class="fa fa-trash"> Delete </a></td>
               </tr>

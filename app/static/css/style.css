@@ -32,14 +32,35 @@ body {
     width: 90%;
     margin: 0 auto;
 }
+.container-fluid,
+.container-fluid h1,
+.container-fluid h2,
+.container-fluid h3,
+.container-fluid p,
+.container-fluid table,
+.container-fluid button,
+.container-fluid a { 
+    color: var(--text-white);
+}
 .border-pink {
     border: 2px solid black;
-    border-radius: 12px;
+    border-radius: 3px;
     border-color: var(--highlight-color);
     color: var(--highlight-color);
+    text-transform: uppercase;
+    font-weight: 700;
 }
 .border-pink:hover {
     color: var(--text-white);
+    text-decoration: none;
+    background-color: var(--highlight-color);
+    transition: 0.3s ease-in-out;
+}
+.grey-pill {
+    border: 1px solid var(--background-light);
+    background-color: var(--background-light);
+    text-transform: uppercase;
+    border-radius: 5px;
 }
 .bd-grid {
     max-width: 1024px;
@@ -249,20 +270,6 @@ body {
     width: 75%;
     z-index: -0;
 }
-/* .single-service.active .services-inner,
-.single-service:hover .services-inner{
-    background: var(--background-dark);
-}
-.single-service.single-service.active .bg,
-.single-service:hover .bg {
-    position: absolute;
-    background-image: linear-gradient(30deg, #7b2fbe, #e75e90);
-    right: 6%;
-    bottom: 5%;
-    height: 80%;
-    width: 75%;
-    z-index: -0;
-} */
 .single-service span {
     font-size: 3rem;
     color: var(--highlight-color);
@@ -287,71 +294,210 @@ body {
     color: var(--highlight-color);
 }
 
+/*-------- Portfolio --------*/
+
+.portfolio-container {
+    margin-top: 5rem;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5rem;
+}
+.portfolio-container::after {
+    width: 100%;
+    content: "";
+    height: 2px;
+    /* border-bottom: 1px solid var(--background-color); */
+}
+hr {
+    height: 2px;
+    background-color: var(--background-color);
+}
+.portfolio-container img {
+    max-width: 100%;
+    display: block;
+    width: 100%;
+    /* height: 200px; */
+    object-fit: cover; 
+}
+.project {
+}
+.project-i {
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.project-i h3 {
+    /* text-align: left; */
+    float: left;
+}
+.links-project {
+    text-align: right;
+    margin-right: 1rem;
+}
+.links-project a,
+.links-project span {
+    padding: .6rem;
+    margin-left: .5rem;
+}
+.links-project a:hover {
+    color: var(--text-white);
+    text-decoration: none;
+    background-color: var(--highlight-color);
+    transition: 0.3s ease-in-out;
+}
+.project-d {
+    margin-top: 2rem;
+}
+
+
 
 
 /*-------- Portfolio --------*/
 .portfolio {
     padding: 5rem 0rem;
+    width: 100%;
     background: var(--background-dark);
 }
-.portfolio-slider {
-    margin: auto;
-    width: 80%;
-    top: 0; bottom: 0;
-    height: inherit !important;
-}
-.slider {
-    display: flex !important;
-}
-.project-item {
+.portfolio-wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, 350px);
+    gap: 30px;
+    justify-content: center;
+
 }
-.project-info { 
-    padding: 3rem 2rem;
-    background-color: #181a1f;
+.project {
+    /* background-color: var(--background-color); */
+    /* align-items: center;
+    justify-content: center;
+    margin: 3rem 0; */
+    /* width: 70%;
+    margin: 0 auto;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%); */
 }
-.project-info h3 {
-    font-size: 1.7rem;
-    margin: 1rem 0;
-    text-align: justify;
+.thumbnail {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.overlay {
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    transform: translate(0%, -100%);
+    transition: all .5s ease;
+    background: linear-gradient(rgba(0, 0, 0, .5) 80%, var(--background-color) 60%);
+    opacity: 0;
+}
+.project:hover .overlay {  
+    opacity: 1;
+    cursor: pointer;
+}
+.overlay .overlay-click i { 
+    text-decoration: none;
+    font-size: 1.5rem; 
+    align-content: center;
+    margin: 20% 0 0 47%;
+    color: var(--text-white);
+    cursor: pointer;
+}
+.overlay .overlay-click i:hover {
     color: var(--highlight-color);
 }
-.slick-track
-{
-    display: flex !important;
+.overlay-text {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 4.1rem;
+    
 }
-.slick-slide
-{
-    height: inherit !important;
+.bg-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    /* display: flex; */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
+}
+.modal-content {
+    width: 600px;
+    height: 700px;
+    background-color: var(--background-color);
+    border-radius: 4px;
+}
+.modal-title {
+    background-color: var(--background-dark);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.project-title {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-white);
+}
+.modal-close {
+    font-size: 1.3rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px 0 0;
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+.modal-close i:hover {
+    color: var(--text-white);
+}
+.modal-data {
+    padding: 10px 20px;
+}
+.modal-thumbnail {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.project-description {
+    margin: 20px;
+    justify-content: center;
+}
+.project-info {
+    text-align: center;
 }
 .project-tools {
     flex-direction: row;
     align-self: flex-end;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin: 2rem 0;
 }
+/* .project-tools span:hover {
+    background-color: var(--highlight-dark);
+    border-color: var(--highlight-dark);
+} */
 .project-tools span {
     margin-right: .5rem;
     font-size: .9rem;
     padding: .5rem;  
 }
 .project-links {
-    padding-top: 0;
     flex-direction: row;
     align-self: flex-end;
-    position: fixed;
     bottom: 0; 
+}
+.project-links .link:hover {
+    color: var(--text-white);
 }
 .link {
     font-size: 1.6rem;
     padding-right: 1rem; 
-}
-.project-img {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
 }
 
 

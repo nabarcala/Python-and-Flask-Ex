@@ -20,7 +20,6 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     headline = db.Column(db.String(140))
@@ -48,21 +47,21 @@ class User(UserMixin, db.Model):
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
     
     # Add and remove follower functions below:
-    def follow(self, user):
-        if not self.is_following(user):
-            self.followed.append(user)
+    # def follow(self, user):
+    #     if not self.is_following(user):
+    #         self.followed.append(user)
 
-    def unfollow(self, user):
-        if self.is_following(user):
-            self.followed.remove(user)
+    # def unfollow(self, user):
+    #     if self.is_following(user):
+    #         self.followed.remove(user)
 
-    def is_following(self, user):
-        return self.followed.filter(followers.c.followed_id == user.id).count() > 0
+    # def is_following(self, user):
+    #     return self.followed.filter(followers.c.followed_id == user.id).count() > 0
     
-    def followed_posts(self):
-        followed = Post.query.join(followers, (followers.c.followed_id == Post.user_id)).filter(followers.c.follower_id == self.id)
-        own = Post.query.filter_by(user_id=self.id)
-        return followed.union(own).order_by(Post.timestamp.desc())
+    # def followed_posts(self):
+    #     followed = Post.query.join(followers, (followers.c.followed_id == Post.user_id)).filter(followers.c.follower_id == self.id)
+    #     own = Post.query.filter_by(user_id=self.id)
+    #     return followed.union(own).order_by(Post.timestamp.desc())
     
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode({'reset_password': self.id, 'exp': time() + expires_in}, app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
@@ -79,29 +78,19 @@ class User(UserMixin, db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
-    
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    def __repr__(self):
-        return '<Post {}>'.format(self.body)
-    
 class Projects(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(30),
-                      unique=True,
-                      info={"validators": Regexp("^[A-Za-z0-9_-]*$")})
-    imgfile = db.Column(db.String(100))
-    imgurl = db.Column(db.String(100))
+    title = db.Column(db.String(30), unique=True, info={"validators": Regexp("^[A-Za-z0-9_-]*$")})
+    imgfile = db.Column(db.LargeBinary) 
+    # imgfile = db.Column(db.String(100))
+    imgname = db.Column(db.String(100))
+    img_urlend = db.Column(db.String(10))
     website = db.Column(db.String(100))
     github_url = db.Column(db.String(100))
     description = db.Column(db.String(5000))
     project_type = db.Column(db.String(3))
+    skills = db.Column(db.String(500)) 
 
     def __repr__(self):
         return '<Project title: {}>'.format(self.title)
-
-              

@@ -1,0 +1,10 @@
+# migrations/*
+*/__pycache__
+*/__pycache__/*
+*.pyc
+port.db
+.env
+.flaskenv
+*temp.*
+flaskenv/
+app.db

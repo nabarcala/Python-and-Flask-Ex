@@ -116,150 +116,68 @@
         </div>
     </section>
 
-    <!-- Projects Done -->
+    
+
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="text-center">
                 <h5 class="small-header"> Portfolio </h5>
                 <h3 class="big-header"> Check Out My Projects </h3>
             </div>
-            <div class="portfolio-slider">
-
-                <!-- SOFF -->
-                <div class="slider">
-                    <div class="project-item">
-                        <div class="project-info">
-                            <h3>SOFF</h3>
-                            <p> Part of a team of three that created a 
-                                fruit-slicing device equipped with a fruit identifier 
-                                and ripeness detection system that is controlled by an 
-                                accompanying Android app. </p>
-                            <p> Retrained a ResNet18 neural network 
-                                to classify a specific set of fruits using an 
-                                NVIDIA Jetson Nano, NVIDIA TensorRT, 
-                                and PyTorch. </p>
-                            <ul class="project-tools">
-                                <span class="border-pink">Python</span>
-                                <span class="border-pink">Java</span>
-                                <span class="border-pink">PyTorch</span>
-                            </ul>
-                            <ul class="project-links">
-                                <a href="https://github.com/nabarcala/SOFF" class="link"><i class='bx bxl-github' ></i></a>
-                            </ul>
-                        </div>
-                        <div class="project-img" style="background-image: url('../../../static/img/SOFF.jpg');"></div>
+            <!-- https://res.cloudinary.com/nbrcl/image/upload/v1596742598/soff.png -->
+            {% if projects %}
+            {% for project in projects %} 
+            <div class="portfolio-container">
+                <img src="https://res.cloudinary.com/nbrcl/image/upload/v1596739480/{{ project.imgname + project.img_urlend }}" alt="">
+                <div class="project">
+                    <div class="project-i">
+                        <h3>{{ project.title }}</h3>
+                        <ul class="links-project">
+                            {% if project.website %}
+                                <a class="border-pink" href="{{ project.website }}" class="link">Live</a>
+                            {% endif %}
+                            {% if project.github_url %}
+                                <a class="border-pink" href="{{ project.github_url }}" class="link">GitHub</a>
+                            {% else %}
+                            <span class="border-pink" class="link">Comming Soon</a>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="project-d">
+                        <p> {{ project.description }} </p> 
+                        <ul class="project-tools">
+                            {% for skill in skills[project.id] %}
+                            <span class="grey-pill">{{ skill }}</span>
+                            {% endfor %}
+                            <!-- <span class="grey-pill">Tool</span>  -->
+                        </ul>
                     </div>
                 </div>
-
-                <!-- Lego Pill Sorter -->
-                <div class="slider">
-                    <div class="project-item">
-                        <div class="project-info">
-                            <h3>Lego Pill Sorter</h3>
-                            <p> Participated in a three-person team to plan and 
-                                create a pill sorter out of Legos. </p>
-                            <p> Programmed a Raspberry Pi to use a webcam to 
-                                sort pills based on the color using OpenCV.
-                                Created a ramp on the device with two exits for 
-                                the colored pills to roll through. </p>
-                            <ul class="project-tools">
-                                <span class="border-pink">Python</span>
-                                <span class="border-pink">OpenCV</span>
-                                <span class="border-pink">Raspberry Pi</span>
-                            </ul>
-                            <ul class="project-links">
-                                <a href="https://github.com/nabarcala/PillSort" class="link"><i class='bx bxl-github' ></i></a>
-                            </ul>
-                        </div>
-                        <div class="project-img" style="background-image: url('../../../static/img/pill-sorter.jpg');"></div>
-                    </div>
-                </div>
-
-                <!-- Med Tracker -->
-                <div class="slider">
-                    <div class="project-item">
-                        <div class="project-info">
-                            <h3>Medication Tracker</h3>
-                            <p> Served as a front-end developer on a team of 
-                                six to develop a web application that reminded the 
-                                user of when they should take their medications. </p>
-                            <p> Able to create appointments with doctors logged into 
-                                the web app. Integrated all appointments and medications 
-                                into the site's calendar. </p>
-                            <p> Designed and converted mockups into code. Created the user interface. </p>
-                            <ul class="project-tools">
-                                <span class="border-pink">PHP</span>
-                                <span class="border-pink">HTML5</span>
-                                <span class="border-pink">CSS3</span>
-                                <span class="border-pink">JavaScript</span>
-                            </ul>
-                            <ul class="project-links">
-                                <a href="https://github.com/nabarcala/Medication-Tracker-Web-App" class="link"><i class='bx bxl-github' ></i></a>
-                            </ul>
-                        </div>
-                        <div class="project-img" style="background-image: url('../../../static/img/med-tracker-img.png');"></div>
-                    </div>
-                </div>
-
-                <!-- Weather App -->
-                <div class="slider">
-                    <div class="project-item">
-                        <div class="project-info">
-                            <h3>Current Weather</h3>
-                            <p> Currently in Development. More Coming Soon!  </p>
-                            <p> Displays the current weather based on the user's geolocation.
-                                Allows the user to search for the weather of specific locations as well. </p>
-                            <p> This app pulls the weather data from the Open Weather Map API and displays it on the web app.  </p>
-                            <ul class="project-tools">
-                                <span class="border-pink">JavaScript</span>
-                                <span class="border-pink">HTML</span>
-                                <span class="border-pink">CSS</span>
-                            </ul>
-                            <ul class="project-links">
-                                <a href="https://github.com/nabarcala/Weather-App" class="link"><i class='bx bxl-github' ></i></a>
-                                <a href="https://weather-app-nb.netlify.app/" class="link"><i class='bx bx-link-external'></i></a>
-                            </ul>
-                        </div>
-                        <div class="project-img" style="background-image: url('../../../static/img/weather-app.PNG');"></div>
-                    </div>
-                </div>
-                
-                <!-- Online Canvas -->
-                <div class="slider">
-                    <div class="project-item">
-                        <div class="project-info">
-                            <h3>Online Canvas</h3>
-                            <p> Currently in Development. More Coming Soon!  </p>
-                            <p> A simple painting app that can be
-                                easily accessed from the web! Check it out!</p>
-                            <p> Draw with a bunch of different colors, 
-                                and change the size of your brush whenever you like. Made a mistake? Don't worry, the eraser tool is there for you! </p>
-                            <ul class="project-tools">
-                                <span class="border-pink">JavaScript</span>
-                                <span class="border-pink">HTML5</span>
-                                <span class="border-pink">CSS</span>
-                            </ul>
-                            <ul class="project-links">
-                                <a href="https://github.com/nabarcala/Online-Canvas" class="link"><i class='bx bxl-github' ></i></a>
-                                <a href="https://online-canvas.netlify.app" class="link"><i class='bx bx-link-external'></i></a>
-                            </ul>
-                        </div>
-                        <div class="project-img" style="background-image: url('../../../static/img/oneline-canvas.gif');"></div>
-                    </div>
-                </div>
-
             </div>
-            
-            <!-- <div class="other-project-views">
-                <div class="text-center"> 
-                    <a href="#"> See Different Portfolio View  </a>
-                </div>
-            </div> -->
 
-        </div>
+            <hr>
+
+            {% endfor %}
+            {% else %}
+
+            <div class="text-center">
+                <h3 class="text-center"> Unable to get project data </h3>
+            </div>
+
+            {% endif %}
+
+            
+
+            </div> <!-- End of portfolio wrapper -->
+        </div> 
+
+        
+
     </section>
 
-
+    
 
 </main>
+
+
 {% endblock %}

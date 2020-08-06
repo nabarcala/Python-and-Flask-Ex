@@ -8,6 +8,8 @@ from app import db
 from app.models import User, Projects
 # import utils
 
+import base64
+
 general = Blueprint('general', __name__,
                    template_folder='templates')
 
@@ -18,22 +20,26 @@ def home():
     """
     Home page 
     """
-    projects = Projects.query.limit(6).all()
-    software_projects = Projects.query.filter_by(project_type='SW').limit(6).all()
-    art_projects = Projects.query.filter_by(project_type='AR').limit(6).all()
-    latest_projects = Projects.query.filter_by(project_type='LT').limit(6).all()
-    upcoming_projects = Projects.query.filter_by(project_type='UPC').limit(6).all()
+    skill_list = [0]
+    projects = Projects.query.all()
 
+    for project in projects:
+        l = project.skills.split(", ") 
+        skill_list.append(l)
+        
     admin = User.query.get(1)
-    return render_template('general/home.html', projects=projects, 
-        software_projects=software_projects, art_projects=art_projects, 
-        latest_projects=latest_projects, upcoming_projects=upcoming_projects, 
-        title='Welcome', admin=admin)
 
-@general.route('/project/<int:id>', methods=['GET', 'POST'])
+    return render_template('general/home.html', projects=projects, skills=skill_list,
+        title='Welcome', admin=admin) 
+
+
+@general.route('/project/<int:id>', methods=['GET', 'POST']) 
 def project(id):
     """
     Display a specific project's information 
+    
     """
     project = Projects.query.get(id)
+    # imgfile = base64.b64decode(project.imgfile)
+    # img_file = Projects.query.with_entities(Projects.imgfile).first()
     return render_template('general/project_info.html', project=project)
