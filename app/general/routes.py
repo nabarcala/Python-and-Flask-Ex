@@ -20,19 +20,20 @@ def home():
     """
     Home page 
     """
-    projects = Projects.query.limit(6).all()
-    # img_file = Projects.query.with_entities(Projects.imgfile).first()
-    # all_skills = Projects.query.with_entities(Projects.skills).first()
-    # skill_list = all_skills.skills.split(", ")
+    skill_list = [0]
+    projects = Projects.query.all()
+
+    for project in projects:
+        l = project.skills.split(", ") 
+        skill_list.append(l)
+        
     admin = User.query.get(1)
 
-    # return render_template('general/home.html', projects=projects, skills=skill_list, 
-    #     title='Welcome', admin=admin)
+    return render_template('general/home.html', projects=projects, skills=skill_list,
+        title='Welcome', admin=admin) 
 
-    return render_template('general/home.html', projects=projects, 
-        title='Welcome', admin=admin)
 
-@general.route('/project/<int:id>', methods=['GET', 'POST'])
+@general.route('/project/<int:id>', methods=['GET', 'POST']) 
 def project(id):
     """
     Display a specific project's information 

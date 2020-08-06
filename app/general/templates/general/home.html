@@ -124,9 +124,9 @@
                 <h5 class="small-header"> Portfolio </h5>
                 <h3 class="big-header"> Check Out My Projects </h3>
             </div>
-
+            <!-- https://res.cloudinary.com/nbrcl/image/upload/v1596742598/soff.png -->
             {% if projects %}
-            {% for project in projects %}
+            {% for project in projects %} 
             <div class="portfolio-container">
                 <img src="https://res.cloudinary.com/nbrcl/image/upload/v1596739480/{{ project.imgname + project.img_urlend }}" alt="">
                 <div class="project">
@@ -144,12 +144,12 @@
                         </ul>
                     </div>
                     <div class="project-d">
-                        <p> {{ project.description }} </p>
+                        <p> {{ project.description }} </p> 
                         <ul class="project-tools">
-                            <span class="grey-pill">skill</span> 
-                            <!-- <span class="grey-pill">Java</span>
-                            <span class="grey-pill">PyTorch</span> -->
-
+                            {% for skill in skills[project.id] %}
+                            <span class="grey-pill">{{ skill }}</span>
+                            {% endfor %}
+                            <!-- <span class="grey-pill">Tool</span>  -->
                         </ul>
                     </div>
                 </div>
