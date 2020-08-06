@@ -33,7 +33,7 @@ class Config(object):
     # configure_uploads(images)
 
     cloudinary.config ( 
-        cloud_name = os.environ.get('CLOUD_NAME'),
+        cloud_name = os.environ.get('CLOUD_NAME'), 
         api_key = os.environ.get('API_KEY'),
         api_secret = os.environ.get('API_SECRET') 
     )
