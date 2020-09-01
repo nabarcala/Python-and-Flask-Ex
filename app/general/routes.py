@@ -21,7 +21,7 @@ def home():
     Home page 
     """
     skill_list = [0]
-    projects = Projects.query.order_by(Projects.id.asc())
+    projects = Projects.query.order_by(Projects.id.desc())
 
     for project in projects:
         l = project.skills.split(", ") 
