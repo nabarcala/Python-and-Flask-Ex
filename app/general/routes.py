@@ -39,7 +39,7 @@ def project(id):
     Display a specific project's information 
     
     """
-    project = Projects.query.get(id).order_by(Projects.id.asc())
+    project = Projects.query.get(id).order_by(Projects.id.desc())
     # imgfile = base64.b64decode(project.imgfile)
     # img_file = Projects.query.with_entities(Projects.imgfile).first()
     return render_template('general/project_info.html', project=project)
