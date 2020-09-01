@@ -24,8 +24,8 @@ def home():
     projects = Projects.query.order_by(Projects.id.desc())
 
     for project in projects:
-        l = project.skills.split(", ") 
-        skill_list.append(l)
+        item = project.skills.split(", ") 
+        skill_list.insert(0, item)
         
     admin = User.query.get(1)
 
