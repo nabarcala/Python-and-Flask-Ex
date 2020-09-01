@@ -12,3 +12,4 @@ Created a responsive personal portfolio to show my current projects and skills. 
 * [Build a CRUD Web App With Python and Flask - Part One by Mbithe Nzomo](https://scotch.io/tutorials/build-a-crud-web-app-with-python-and-flask-part-one#toc-blueprints) had very detailed examples on how to organize this project using Blueprints.
 * [The Flask Mega-Tutorial Part XVIII: Deployment on Heroku](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-heroku) and [Heroku's own Getting Started on Heroku with Python page](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app) had some simple instructions on deploying the web app using Heroku.
 
+
