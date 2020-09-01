@@ -25,7 +25,7 @@ def home():
 
     for project in projects:
         item = project.skills.split(", ") 
-        skill_list.insert(0, item)
+        skill_list.insert(1, item)
         
     admin = User.query.get(1)
 
