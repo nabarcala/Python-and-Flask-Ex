@@ -21,7 +21,7 @@ def home():
     Home page 
     """
     skill_list = [0]
-    projects = Projects.query.order_by(Projects.id.asc()) 
+    projects = Projects.query.order_by(Projects.id.desc()) 
 
     for project in projects:
         l = project.skills.split(", ") 
@@ -39,7 +39,7 @@ def project(id):
     Display a specific project's information 
     
     """
-    project = Projects.query.get(id).order_by(Projects.id.desc()) 
+    project = Projects.query.get(id).all()
     # imgfile = base64.b64decode(project.imgfile)
     # img_file = Projects.query.with_entities(Projects.imgfile).first()
     return render_template('general/project_info.html', project=project)
